@@ -1,5 +1,5 @@
-const testData = {
-    hero: {
+const testData = [
+    {
         component: 'hero',
         classes: '',
         items: [
@@ -17,7 +17,7 @@ const testData = {
             }
         ]
     },
-    keyFeatures2: {
+    {
         component: 'key-features',
         classes: '',
         items: [
@@ -31,7 +31,7 @@ const testData = {
           }
         ]
     },
-    keyFeatures3: {
+    {
         component: 'key-features',
         classes: '',
         items: [
@@ -49,7 +49,7 @@ const testData = {
           }
         ]
     },
-    textBlock: {
+    {
         component: 'text-block',
         classes: '',
         items: [
@@ -59,7 +59,7 @@ const testData = {
             }
         ]
     },
-    textBlockCenter: {
+    {
         component: 'text-block',
         classes: 'text-block--center',
         items: [
@@ -69,7 +69,7 @@ const testData = {
             }
         ]
     },
-    ctaBlock: {
+    {
         component: 'cta-block',
         classes: 'cta-block--left',
         items: [
@@ -85,7 +85,7 @@ const testData = {
             }
         ]
     },
-    ctaBlock2: {
+    {
         component: 'cta-block',
         classes: 'cta-block--right',
         items: [
@@ -101,6 +101,6 @@ const testData = {
             }
         ]
     }
-}
+];
 
 export default testData;

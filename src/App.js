@@ -9,13 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <Section object={testData.hero} />
-      <Section object={testData.keyFeatures2} />
-      <Section object={testData.keyFeatures3} />
-      <Section object={testData.textBlock} />
-      <Section object={testData.textBlockCenter} />
-      <Section object={testData.ctaBlock} />
-      <Section object={testData.ctaBlock2} />
+      {testData.map(item => <Section object={item} />)}
     </div>
   );
 }
