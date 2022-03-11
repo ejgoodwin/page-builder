@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import Hero from './components/Hero';
+import KeyFeatures from './components/KeyFeatures';
+import Section from './components/Section';
+import testData from './test-data';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Section object={testData.hero} />
+      <Section object={testData.keyFeatures2} />
+      <Section object={testData.keyFeatures3} />
+      <Section object={testData.textBlock} />
+      <Section object={testData.textBlockCenter} />
+      <Section object={testData.ctaBlock} />
+      <Section object={testData.ctaBlock2} />
     </div>
   );
 }
