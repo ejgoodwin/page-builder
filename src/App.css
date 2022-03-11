@@ -17,7 +17,7 @@ img {
 }
 
 .section:not(:first-of-type) {
-  margin: 3rem 0;
+  padding: 3rem 0;
 }
 
 .hero {
@@ -32,17 +32,27 @@ img {
   width: 100%;
 }
 
-.key-features {
+.card {
   padding: 1rem 1rem;
 }
 
-.key-features__container {
+.card .no-border .card__item {
+  border-color: transparent;
+}
+
+.card .shadow .card__item {
+  border: 0;
+  box-shadow: 0 3px 10px rgba(141, 141, 141, 0.3);
+}
+
+.card__container {
   display: flex;
   gap: 24px;
 }
 
-.key-features__item {
-  background: lightgray;
+.card__item {
+  border: 1px solid #cacaca;
+  border-radius: 6px;
   padding: 1rem;
 }
 

@@ -3,9 +3,10 @@ import SectionButton from "./SectionButton";
 const SectionItem = ({ item, component }) => {
 
     const heading = component === 'hero' ? <h1>{item.heading}</h1> : <h2>{item.heading}</h2>;
+    const backgroundColour = item.background ? item.background : '';
 
     return (
-        <div className={`${component}__item`}>
+        <div className={`${component}__item`} style={{"background": backgroundColour}}>
             <div className={`${component}__item-text`}>
                 {item.heading && heading}
                 {item.text && <p>{item.text}</p>}
