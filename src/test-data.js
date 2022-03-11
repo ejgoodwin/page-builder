@@ -110,7 +110,7 @@ const testData = [
 	},
 	{
 		component: 'card',
-		classes: 'border',
+		classes: 'uncontained',
 		items: [
 			{
 				heading: 'Card',
