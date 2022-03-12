@@ -7,6 +7,20 @@ button {
   margin-right: 8px;
 }
 
+.button {
+  background: rgb(250, 249, 249);
+  border-radius: 4px;
+  color: black;
+  display: inline-block;
+  margin-right: 8px;
+  padding: .5rem .75rem;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: white;
+}
+
 img {
   max-width: 100%;
 }
@@ -16,8 +30,8 @@ img {
   max-width: 1200px;
 }
 
-.section:not(:first-of-type) {
-  padding: 3rem 0;
+.section {
+  padding: 3rem 1rem;
 }
 
 .hero {
@@ -25,15 +39,23 @@ img {
   display: flex;
   align-items: center;
   min-height: 350px;
-  padding: 1rem;
+}
+
+.hero--centered .hero__item-text {
+  text-align: center;
 }
 
 .hero__container {
   width: 100%;
 }
 
-.card {
-  padding: 1rem 1rem;
+.hero__heading {
+  font-size: 4rem;
+  margin: 0 0 2rem;
+}
+
+.hero p {
+  font-size: 2rem;
 }
 
 .card .no-border .card__item {
@@ -61,10 +83,6 @@ img {
   padding: 1rem;
 }
 
-.text-block {
-  padding: 0 1rem;
-}
-
 .text-block--center {
   text-align: center;
 }
@@ -86,4 +104,24 @@ img {
 
 .cta-block--right .cta-block__item-text {
   order: 2;
+}
+
+.pb-builder {
+  padding: 24px 32px;
+}
+
+.pb-container {
+  display: grid;
+  grid-template: auto / 350px 1fr;
+}
+
+.pb-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pb-sidebar {
+  background: rgb(247, 247, 247);
+  padding: 16px;
 }
