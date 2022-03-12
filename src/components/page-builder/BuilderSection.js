@@ -1,11 +1,8 @@
-const BuilderSection = ({ item }) => {
+const BuilderSection = ({ item, inputTextChange }) => {
     return (
         <div>
-            <p>{item}</p>
-            <div>
-                <input type="text" />
-                <input type="text" />
-            </div>
+            <input type="text" onChange={(e) => inputTextChange(e, item.id, 'heading')} />
+            <input type="text" onChange={(e) => inputTextChange(e, item.id, 'text')} />
         </div>
     );
 }

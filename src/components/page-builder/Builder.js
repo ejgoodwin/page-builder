@@ -1,6 +1,7 @@
+import Page from "../../pages/Page";
 import BuilderSection from "./BuilderSection";
 
-const Builder = ({ data }) => {
+const Builder = ({ data, inputTextChange }) => {
 	return (
 		<div className="pb-builder">
 			<header className="pb-header">
@@ -10,12 +11,20 @@ const Builder = ({ data }) => {
 					<button className="button">Preview page</button>
 				</div>
 			</header>
-			{data.length > 0 && data.map(item => <BuilderSection item={item} />)}
+			{data.map(item =>
+				<div>
+					<p>{item.component}</p>
+					<BuilderSection item={item} inputTextChange={inputTextChange} />
+				</div>)}
 			<section>
 				<div className="pb-section-empty">
 					<p>Drag and drop a component</p>	
 				</div>
 			</section>
+
+			{/* Temp - maybe a modal or new page. */}
+			<h2>Preview</h2>
+			<Page data={data} />
 		</div>
 	);
 }
