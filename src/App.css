@@ -1,5 +1,10 @@
 * {
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+p {
+  line-height: 1.4;
 }
 
 button {
@@ -9,6 +14,7 @@ button {
 
 .button {
   background: rgb(250, 249, 249);
+  border: 1px solid #bbbbbb;
   border-radius: 4px;
   color: black;
   display: inline-block;
@@ -17,12 +23,56 @@ button {
   text-decoration: none;
 }
 
-.button:hover {
+.button:not(:disabled):hover {
   background: white;
+}
+
+.button:disabled {
+  background-color: #f1f1f1;
+  color: #bbbbbb;
+  cursor: default;
+}
+
+.button-small {
+  padding: .25rem .5rem;
+}
+
+.button-icon {
+  align-items: center;
+  display: flex;
+}
+
+.button-icon-round {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  margin: 2px;
+  width: 30px;
 }
 
 img {
   max-width: 100%;
+}
+
+.header {
+  border-bottom: 1px solid #bbbbbb;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.header__link {
+  background-color: #f1f1f1;
+  color: black;
+  display: inline-block;
+  padding: .5rem .75rem;;
+  text-decoration: none;
+}
+
+.header__link ~ .header__link {
+  margin-left: 8px;
 }
 
 .container {
@@ -80,6 +130,7 @@ img {
 .card__item {
   border: 1px solid #cacaca;
   border-radius: 6px;
+  flex-grow: 1;
   padding: 1rem;
 }
 
@@ -113,6 +164,60 @@ img {
 .pb-container {
   display: grid;
   grid-template: auto / 350px 1fr;
+  min-height: 100vh;
+}
+
+.pb-section {
+  border: 1px dashed grey;
+  padding: 2rem;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.pb-section-move-buttons {
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+}
+
+.pb-section-component-name {
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 1rem;
+  font-size: .75rem;
+  padding: .15rem .5rem;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+
+.pb-section-card {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.pb-section-delete {
+  margin: 0;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.pb-section-empty {
+  text-align: center;
+}
+
+.pb-section-text-input {
+  border: 1px solid grey;
+  border-radius: 6px;
+  display: block;
+  font-size: 1rem;
+  margin: .5rem 0;
+  padding: .25rem .5rem;
 }
 
 .pb-header {
@@ -125,3 +230,10 @@ img {
   background: rgb(247, 247, 247);
   padding: 16px;
 }
+
+
+/* Material icon rules */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }

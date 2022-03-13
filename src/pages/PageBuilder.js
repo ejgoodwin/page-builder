@@ -8,7 +8,7 @@ const PageBuilder = () => {
 	const [sectionCount, setSectionCount] = useState(0);
 
 
-	const addComponent = (name) => {
+	const addComponent = name => {
 		setSectionCount(sectionCount + 1);
 
 		let newData = {
@@ -17,8 +17,9 @@ const PageBuilder = () => {
 			id: `${sectionCount}-${name}`,
 			items: [
 				{
-					heading: '',
-					text: '',
+					id: 1,
+					heading: 'Placeholder...',
+					text: 'Placeholder...',
 				}
 			]
 		};
@@ -26,11 +27,54 @@ const PageBuilder = () => {
 		setBuilderData([...builderData, newData]);
 	}
 
-	const inputTextChange = (event, sectionId, property) => {
+	const addCard = itemId => {
+		const newItem = {
+			id: 1,
+			heading: 'Placeholder...',
+			text: 'Placeholder...',
+		}
+		let builderCopy = [...builderData];
+
+		for (const item in builderCopy) {
+			if (builderCopy[item].id === itemId) {
+				builderCopy[item].items.push(newItem);
+				break;
+			}
+		}
+		setBuilderData(builderCopy);
+	}
+
+	const deleteComponent = id => {
+		let builderCopy = [...builderData];
+		for (let i = 0; i < builderCopy.length; i++) {
+			if (builderCopy[i].id === id) {
+				builderCopy.splice(i, 1);
+			}
+		}
+		setBuilderData(builderCopy);
+	}
+
+	const moveComponent = (direction, id) => {
+		const dir = direction === 'up' ? -1 : 1;
+		let temp;
+		let builderCopy = [...builderData];
+		for (let i = 0; i < builderCopy.length; i++) {
+			if (builderCopy[i].id === id) {
+				console.log('temp', temp);
+				temp = builderCopy[i + dir];
+				builderCopy[i + dir] = builderCopy[i];
+				builderCopy[i] = temp;
+				break;
+			}
+		}
+		setBuilderData(builderCopy);
+	}
+
+	const inputTextChange = (event, sectionId, itemIndex, property) => {
 		let builderCopy = [...builderData];
 		builderCopy.forEach(item => {
 			if (item.id === sectionId) {
-				item.items[0][property] = event.target.value;
+				item.items[itemIndex][property] = event.target.value;
 			}
 		});
 		setBuilderData(builderCopy);
@@ -39,7 +83,12 @@ const PageBuilder = () => {
 	return (
 		<div className="pb-container">
 			<Sidebar addComponent={addComponent} />
-			<Builder data={builderData} inputTextChange={inputTextChange} />
+			<Builder
+				addCard={addCard}
+				data={builderData}
+				deleteComponent={deleteComponent}
+				inputTextChange={inputTextChange}
+				moveComponent={moveComponent} />
 		</div>
 	);
 }
