@@ -1,7 +1,7 @@
 # Page builder
 
 ## Wireframes
-![page builder wireframe](page-builder-wireframe.png)
+![page builder wireframe](src/page-builder-wireframe.png)
 
 ## Run
 `npm start`
