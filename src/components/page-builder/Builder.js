@@ -2,7 +2,7 @@ import Page from "../Page";
 import BuilderSection from "./BuilderSection";
 
 const Builder = ({ addCard, data, deleteComponent, inputTextChange, moveComponent }) => {
-	
+
 	return (
 		<div className="pb-builder">
 			<header className="pb-header">
@@ -17,13 +17,13 @@ const Builder = ({ addCard, data, deleteComponent, inputTextChange, moveComponen
 				<section key={item.id} className={`pb-section pb-section-${item.component}`}>
 					<span className="pb-section-component-name">{item.component}</span>
 
-					{item.items.map((section, index) => 
-						<BuilderSection 
-							key={`${item.id}-${index}`} 
-							item={item} 
+					{item.items.map((section, index) =>
+						<BuilderSection
+							key={`${item.id}-${index}`}
+							item={item}
 							inputTextChange={inputTextChange}
 							itemIndex={index} />)}
-					
+
 					{item.component === 'card' && item.items.length < 3 ? <button className="button button-small button-icon" onClick={() => addCard(item.id)}>
 						<span class="material-icons md-18">add</span> Add card
 					</button> : null}

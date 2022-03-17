@@ -7,7 +7,6 @@ const PageBuilder = () => {
 	const [builderData, setBuilderData] = useState([]);
 	const [sectionCount, setSectionCount] = useState(0);
 
-
 	const addComponent = name => {
 		setSectionCount(sectionCount + 1);
 
