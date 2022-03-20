@@ -26,18 +26,23 @@ const PageBuilder = () => {
 		setBuilderData([...builderData, newData]);
 	}
 
-	const addCard = itemId => {
+	const addCard = sectionId => {
 		const newItem = {
 			id: 1,
 			heading: 'Placeholder...',
 			text: 'Placeholder...',
 		}
-		let builderCopy = [...builderData];
+		const builderCopy = [...builderData];
+		let sectionCopy = {};
 
-		for (const item in builderCopy) {
-			if (builderCopy[item].id === itemId) {
-				builderCopy[item].items.push(newItem);
-				break;
+		for (const section in builderCopy) {
+			if (builderCopy[section].id === sectionId) {
+				sectionCopy = {
+					...builderData[section],
+					items: [...builderData[section].items, newItem]
+				}
+				builderCopy[section] = sectionCopy;
+				break
 			}
 		}
 		setBuilderData(builderCopy);
