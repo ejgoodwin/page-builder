@@ -1,21 +1,23 @@
 const testData = [
 	{
-		background: '#f5bfac',
+		background: '#EDF8FD url("images/homepage-hero-bg.svg") no-repeat bottom',
 		color: '#26262a',
 		component: 'hero',
-		classes: 'hero--centered',
+		classes: '',
 		items: [
 			{
 				heading: 'Page builder',
 				text: 'Build pages quickly and easily',
 				buttons: [
 					{
-						label: 'Build a page',
-						link: '/page-builder'
+						label: 'Creat a new page',
+						link: '/page-builder',
+						classes: 'button--primary'
 					},
 					{
 						label: 'Example page',
 						link: '/example-page',
+						classes: 'button--secondary'
 					}
 				]
 			}

@@ -11,7 +11,7 @@ const SectionItem = ({ component, item }) => {
 				{item.heading && heading}
 				{item.text && <p>{item.text}</p>}
 				{item.buttons && item.buttons.map(button =>
-					<Link className="button" to={button.link ? button.link : ''}>{button.label}</Link>)}
+					<Link className={`button ${button.classes}`} to={button.link ? button.link : ''}>{button.label}</Link>)}
 			</div>
 			<div className={`${component}__item-media`}>
 				{item.image && <img src={item.image} alt="" />}
