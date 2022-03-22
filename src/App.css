@@ -126,8 +126,10 @@ img {
   font-size: 2rem;
 }
 
-.card .no-border .card__item {
+.card.no-border .card__item {
   border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .card .shadow .card__item {
@@ -164,7 +166,7 @@ img {
 .cta-block__item {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 60% 1fr;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .cta-block--right .cta-block__item {
