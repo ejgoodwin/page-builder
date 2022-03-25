@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Builder from "../components/page-builder/Builder";
-import Sidebar from "../components/page-builder/Sidebar";
+import Builder from "./Builder";
+import Sidebar from "./Sidebar";
 
 const PageBuilder = () => {
 
