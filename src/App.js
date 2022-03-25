@@ -1,9 +1,9 @@
 import './App.css';
-import testData from './test-data';
+import testData from './data/test-data';
 import { Route, Routes } from 'react-router-dom';
 import Page from './components/Page';
-import homePageData from './homePageData';
-import PageBuilder from './pages/PageBuilder';
+import homePageData from './data/home-page-data';
+import PageBuilder from './components/page-builder/PageBuilder';
 import Header from './components/Header';
 
 function App() {
