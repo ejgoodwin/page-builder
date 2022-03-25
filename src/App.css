@@ -251,6 +251,21 @@ img {
   padding: 16px;
 }
 
+.pb-homepage-hero {
+  background: url(images/homepage-hero.svg) no-repeat;
+  background-position: 90% 18px;
+  background-size: cover;
+}
+
+.pb-text-block-cta {
+  background: linear-gradient(90deg, rgba(5,123,186,1) 40%, rgba(41,193,221,1) 100%);
+}
+
+/* .pb-homepage-cta-block-left { *** try clip.
+  background: url(images/homepage-cta.svg) no-repeat;
+  background-position: 90% 18px;
+  background-size: cover;
+} */
 
 /* Material icon rules */
 .material-icons.md-18 { font-size: 18px; }

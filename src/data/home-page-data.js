@@ -3,7 +3,7 @@ const testData = [
 		background: '#EDF8FD',
 		color: '#26262a',
 		component: 'hero',
-		classes: '',
+		classes: 'pb-homepage-hero',
 		items: [
 			{
 				heading: 'Page builder',
@@ -45,7 +45,7 @@ const testData = [
 	},
 	{
 		component: 'cta-block',
-		classes: 'cta-block--left',
+		classes: 'cta-block--left pb-homepage-cta-block-left',
 		items: [
 			{
 				heading: "Heading about product",
@@ -55,10 +55,10 @@ const testData = [
 		]
 	},
 	{
-		background: 'linear-gradient(90deg, rgba(5,123,186,1) 40%, rgba(41,193,221,1) 100%)',
+		background: '',
 		color: 'white',
 		component: 'text-block',
-		classes: 'text-block--center',
+		classes: 'text-block--center pb-text-block-cta',
 		items: [
 			{
 				heading: "Create pages with an easy to use page builder",
