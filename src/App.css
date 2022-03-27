@@ -3,6 +3,10 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+h2 {
+  font-size: var(--h2-font-size, 1.75rem);
+}
+
 p {
   line-height: 1.4;
 }
@@ -14,7 +18,6 @@ button {
 
 .button {
   background: rgb(250, 249, 249);
-  border: 1px solid #bbbbbb;
   border-radius: 4px;
   color: black;
   display: inline-block;
@@ -31,6 +34,23 @@ button {
   background-color: #f1f1f1;
   color: #bbbbbb;
   cursor: default;
+}
+
+.button--primary {
+  background-color: #057BBA;
+  color: white;
+}
+
+.button--primary:not(:disabled):hover {
+  background-color: #016ea8;
+}
+
+.button--secondary {
+  background-color: #FAD287;
+}
+
+.button--secondary:not(:disabled):hover {
+  background-color: #f5c978;
 }
 
 .button-small {
@@ -57,22 +77,28 @@ img {
 }
 
 .header {
-  border-bottom: 1px solid #bbbbbb;
+  align-items: center;
+  background: #EDF8FD;
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: .5rem 1rem;
 }
 
 .header__link {
-  background-color: #f1f1f1;
-  color: black;
+  border-radius: 4px;
+  color: #016398;
   display: inline-block;
-  padding: .5rem .75rem;;
+  padding: .25rem .5rem;
   text-decoration: none;
 }
 
-.header__link ~ .header__link {
-  margin-left: 8px;
+.header__link:hover {
+  background-color: #e4f5fd;
+  color: #01507a;
+}
+
+.header__lockup {
+  width: 100px;
 }
 
 .container {
@@ -81,7 +107,7 @@ img {
 }
 
 .section {
-  padding: 3rem 1rem;
+  padding: var(--section-padding, 2rem 1rem);
 }
 
 .hero {
@@ -100,15 +126,16 @@ img {
 }
 
 .hero__heading {
-  font-size: 4rem;
-  margin: 0 0 2rem;
+  font-size: var(--hero-heading-font-size, 3rem);
+  margin: 0 0 1rem;
 }
 
 .hero p {
-  font-size: 2rem;
+  font-size: var(--hero-subheading-font-size, 1.5rem);
+  margin: 1rem 0;
 }
 
-.card .no-border .card__item {
+.card.no-border .card__item {
   border-color: transparent;
 }
 
@@ -123,15 +150,15 @@ img {
 }
 
 .card__container {
-  display: flex;
-  gap: 24px;
+  display: var(--card-container-display);
+  gap: var(--card-container-gap);
 }
 
 .card__item {
   border: 1px solid #cacaca;
   border-radius: 6px;
   flex-grow: 1;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .text-block--center {
@@ -144,9 +171,9 @@ img {
 }
 
 .cta-block__item {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 60% 1fr;
+  display: var(--cta-block-item-display);
+  gap: var(--cta-block-item-gap);
+  grid-template: var(--cta-block-item-grid-template);
 }
 
 .cta-block--right .cta-block__item {
@@ -231,9 +258,45 @@ img {
   padding: 16px;
 }
 
+.pb-homepage-hero {
+  background: url(images/homepage-hero.svg) no-repeat;
+  background-position: 90% 18px;
+  background-size: cover;
+  padding-top: var(--pb-homepage-hero-padding-top, 2rem);
+}
+
+.pb-text-block-cta {
+  background: linear-gradient(90deg, rgba(5,123,186,1) 27%, rgba(41,193,221,1) 100%);
+}
+
+.pb-homepage-cta-block-left { 
+  background: url(images/homepage-cta.svg) no-repeat;
+  background-position: bottom;
+  background-size: 100%;
+}
 
 /* Material icon rules */
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
+
+@media screen and (min-width: 800px) {
+  :root {
+    --card-container-display: flex;
+    --card-container-gap: 24px;
+
+    --cta-block-item-display: grid;
+    --cta-block-item-gap: 1rem;
+    --cta-block-item-grid-template: auto / repeat(2, 1fr);
+
+    --h2-font-size: 2rem;
+
+    --hero-heading-font-size: 4rem;
+    --hero-subheading-font-size: 2rem;
+
+    --section-padding: 5rem 1rem;
+    
+    --pb-homepage-hero-padding-top: 3rem; 
+  }
+}

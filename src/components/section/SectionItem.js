@@ -6,12 +6,12 @@ const SectionItem = ({ component, item }) => {
 	const backgroundColour = item.background ? item.background : '';
 
 	return (
-		<div className={`${component}__item`} style={{ "background": backgroundColour }}>
+		<div className={`${component}__item`} style={{ "background-color": backgroundColour }}>
 			<div className={`${component}__item-text`}>
 				{item.heading && heading}
 				{item.text && <p>{item.text}</p>}
 				{item.buttons && item.buttons.map(button =>
-					<Link className="button" to={button.link ? button.link : ''}>{button.label}</Link>)}
+					<Link className={`button ${button.classes}`} to={button.link ? button.link : ''}>{button.label}</Link>)}
 			</div>
 			<div className={`${component}__item-media`}>
 				{item.image && <img src={item.image} alt="" />}
