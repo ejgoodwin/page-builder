@@ -3,6 +3,10 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+h2 {
+  font-size: 2rem;
+}
+
 p {
   line-height: 1.4;
 }
@@ -99,7 +103,7 @@ img {
 }
 
 .section {
-  padding: 3rem 1rem;
+  padding: 5rem 1rem;
 }
 
 .hero {
@@ -119,17 +123,16 @@ img {
 
 .hero__heading {
   font-size: 4rem;
-  margin: 0 0 2rem;
+  margin: 0 0 1rem;
 }
 
 .hero p {
   font-size: 2rem;
+  margin: 1rem 0;
 }
 
 .card.no-border .card__item {
   border-color: transparent;
-  padding-left: 0;
-  padding-right: 0;
 }
 
 .card .shadow .card__item {
@@ -151,7 +154,7 @@ img {
   border: 1px solid #cacaca;
   border-radius: 6px;
   flex-grow: 1;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .text-block--center {
@@ -258,14 +261,14 @@ img {
 }
 
 .pb-text-block-cta {
-  background: linear-gradient(90deg, rgba(5,123,186,1) 40%, rgba(41,193,221,1) 100%);
+  background: linear-gradient(90deg, rgba(5,123,186,1) 27%, rgba(41,193,221,1) 100%);
 }
 
-/* .pb-homepage-cta-block-left { *** try clip.
+.pb-homepage-cta-block-left { 
   background: url(images/homepage-cta.svg) no-repeat;
-  background-position: 90% 18px;
-  background-size: cover;
-} */
+  background-position: 100% 102%;
+  background-size: 100%;
+}
 
 /* Material icon rules */
 .material-icons.md-18 { font-size: 18px; }
