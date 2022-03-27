@@ -4,7 +4,7 @@
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: var(--h2-font-size, 1.75rem);
 }
 
 p {
@@ -78,19 +78,23 @@ img {
 
 .header {
   align-items: center;
+  background: #EDF8FD;
   display: flex;
   justify-content: space-between;
   padding: .5rem 1rem;
 }
 
 .header__link {
-  color: black;
+  border-radius: 4px;
+  color: #016398;
   display: inline-block;
+  padding: .25rem .5rem;
   text-decoration: none;
 }
 
-.header__link ~ .header__link {
-  margin-left: 8px;
+.header__link:hover {
+  background-color: #e4f5fd;
+  color: #01507a;
 }
 
 .header__lockup {
@@ -103,7 +107,7 @@ img {
 }
 
 .section {
-  padding: 5rem 1rem;
+  padding: var(--section-padding, 2rem 1rem);
 }
 
 .hero {
@@ -122,12 +126,12 @@ img {
 }
 
 .hero__heading {
-  font-size: 4rem;
+  font-size: var(--hero-heading-font-size, 3rem);
   margin: 0 0 1rem;
 }
 
 .hero p {
-  font-size: 2rem;
+  font-size: var(--hero-subheading-font-size, 1.5rem);
   margin: 1rem 0;
 }
 
@@ -146,8 +150,8 @@ img {
 }
 
 .card__container {
-  display: flex;
-  gap: 24px;
+  display: var(--card-container-display);
+  gap: var(--card-container-gap);
 }
 
 .card__item {
@@ -167,9 +171,9 @@ img {
 }
 
 .cta-block__item {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(2, 1fr);
+  display: var(--cta-block-item-display);
+  gap: var(--cta-block-item-gap);
+  grid-template: var(--cta-block-item-grid-template);
 }
 
 .cta-block--right .cta-block__item {
@@ -258,6 +262,7 @@ img {
   background: url(images/homepage-hero.svg) no-repeat;
   background-position: 90% 18px;
   background-size: cover;
+  padding-top: var(--pb-homepage-hero-padding-top, 2rem);
 }
 
 .pb-text-block-cta {
@@ -266,7 +271,7 @@ img {
 
 .pb-homepage-cta-block-left { 
   background: url(images/homepage-cta.svg) no-repeat;
-  background-position: 100% 102%;
+  background-position: bottom;
   background-size: 100%;
 }
 
@@ -275,3 +280,23 @@ img {
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
+
+@media screen and (min-width: 800px) {
+  :root {
+    --card-container-display: flex;
+    --card-container-gap: 24px;
+
+    --cta-block-item-display: grid;
+    --cta-block-item-gap: 1rem;
+    --cta-block-item-grid-template: auto / repeat(2, 1fr);
+
+    --h2-font-size: 2rem;
+
+    --hero-heading-font-size: 4rem;
+    --hero-subheading-font-size: 2rem;
+
+    --section-padding: 5rem 1rem;
+    
+    --pb-homepage-hero-padding-top: 3rem; 
+  }
+}
