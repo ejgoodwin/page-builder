@@ -6,7 +6,7 @@ const SectionItem = ({ component, item }) => {
 	const backgroundColour = item.background ? item.background : '';
 
 	return (
-		<div className={`${component}__item`} style={{ "background-color": backgroundColour }}>
+		<div className={`${component}__item`} style={{ "backgroundColor": backgroundColour }}>
 			<div className={`${component}__item-text`}>
 				{item.heading && heading}
 				{item.text && <p>{item.text}</p>}

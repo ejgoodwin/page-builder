@@ -2,13 +2,17 @@ import { useState } from "react";
 import Builder from "./Builder";
 import Sidebar from "./Sidebar";
 
+// Note: structuredClone() is not compatible with older browsers https://developer.mozilla.org/en-US/docs/Web/API/structuredClone 
+
 const PageBuilder = () => {
 
 	const [builderData, setBuilderData] = useState([]);
+	const [itemCount, setItemCount] = useState(0);
 	const [sectionCount, setSectionCount] = useState(0);
 
 	const addComponent = name => {
 		setSectionCount(sectionCount + 1);
+		setItemCount(itemCount + 1);
 
 		let newData = {
 			component: name,
@@ -16,7 +20,7 @@ const PageBuilder = () => {
 			id: `${sectionCount}-${name}`,
 			items: [
 				{
-					id: 1,
+					id: `item-${itemCount}`,
 					heading: 'Placeholder...',
 					text: 'Placeholder...',
 				}
@@ -27,61 +31,56 @@ const PageBuilder = () => {
 	}
 
 	const addCard = sectionId => {
+		setItemCount(itemCount + 1);
 		const newItem = {
-			id: 1,
+			id: `item-${itemCount}`,
 			heading: 'Placeholder...',
 			text: 'Placeholder...',
 		}
-		const builderCopy = [...builderData];
-		let sectionCopy = {};
+		const builderDataClone = structuredClone(builderData);
 
-		for (const section in builderCopy) {
-			if (builderCopy[section].id === sectionId) {
-				sectionCopy = {
-					...builderData[section],
-					items: [...builderData[section].items, newItem]
-				}
-				builderCopy[section] = sectionCopy;
+		for (const section in builderDataClone) {
+			if (builderDataClone[section].id === sectionId) {
+				builderDataClone[section].items.push(newItem);
 				break
 			}
 		}
-		setBuilderData(builderCopy);
+		setBuilderData(builderDataClone);
 	}
 
 	const deleteComponent = id => {
-		let builderCopy = [...builderData];
-		for (let i = 0; i < builderCopy.length; i++) {
-			if (builderCopy[i].id === id) {
-				builderCopy.splice(i, 1);
+		const builderDataClone = structuredClone(builderData);
+		for (let i = 0; i < builderDataClone.length; i++) {
+			if (builderDataClone[i].id === id) {
+				builderDataClone.splice(i, 1);
 			}
 		}
-		setBuilderData(builderCopy);
+		setBuilderData(builderDataClone);
 	}
 
 	const moveComponent = (direction, id) => {
 		const dir = direction === 'up' ? -1 : 1;
+		const builderDataClone = structuredClone(builderData);
 		let temp;
-		let builderCopy = [...builderData];
-		for (let i = 0; i < builderCopy.length; i++) {
-			if (builderCopy[i].id === id) {
-				console.log('temp', temp);
-				temp = builderCopy[i + dir];
-				builderCopy[i + dir] = builderCopy[i];
-				builderCopy[i] = temp;
+		for (let i = 0; i < builderDataClone.length; i++) {
+			if (builderDataClone[i].id === id) {
+				temp = builderDataClone[i + dir];
+				builderDataClone[i + dir] = builderDataClone[i];
+				builderDataClone[i] = temp;
 				break;
 			}
 		}
-		setBuilderData(builderCopy);
+		setBuilderData(builderDataClone);
 	}
 
 	const inputTextChange = (event, sectionId, itemIndex, property) => {
-		let builderCopy = [...builderData];
-		builderCopy.forEach(item => {
+		const builderDataClone = structuredClone(builderData);
+		builderDataClone.forEach(item => {
 			if (item.id === sectionId) {
 				item.items[itemIndex][property] = event.target.value;
 			}
 		});
-		setBuilderData(builderCopy);
+		setBuilderData(builderDataClone);
 	}
 
 	return (

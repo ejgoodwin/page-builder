@@ -25,18 +25,18 @@ const Builder = ({ addCard, data, deleteComponent, inputTextChange, moveComponen
 							itemIndex={index} />)}
 
 					{item.component === 'card' && item.items.length < 3 ? <button className="button button-small button-icon" onClick={() => addCard(item.id)}>
-						<span class="material-icons md-18">add</span> Add card
+						<span className="material-icons md-18">add</span> Add card
 					</button> : null}
 
 					<button className="button pb-section-delete button-icon-round" onClick={() => deleteComponent(item.id)}>
-						<span class="material-icons">close</span>
+						<span className="material-icons">close</span>
 					</button>
 					<div className="pb-section-move-buttons">
 						<button className="button button-icon-round" disabled={i === 0} onClick={() => moveComponent('up', item.id)}>
-							<span class="material-icons">arrow_drop_up</span>
+							<span className="material-icons">arrow_drop_up</span>
 						</button>
 						<button className="button button-icon-round" disabled={i === data.length - 1} onClick={() => moveComponent('down', item.id)}>
-							<span class="material-icons">arrow_drop_down</span>
+							<span className="material-icons">arrow_drop_down</span>
 						</button>
 					</div>
 				</section>)}
