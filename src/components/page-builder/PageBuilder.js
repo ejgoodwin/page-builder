@@ -7,10 +7,12 @@ import Sidebar from "./Sidebar";
 const PageBuilder = () => {
 
 	const [builderData, setBuilderData] = useState([]);
+	const [itemCount, setItemCount] = useState(0);
 	const [sectionCount, setSectionCount] = useState(0);
 
 	const addComponent = name => {
 		setSectionCount(sectionCount + 1);
+		setItemCount(itemCount + 1);
 
 		let newData = {
 			component: name,
@@ -18,7 +20,7 @@ const PageBuilder = () => {
 			id: `${sectionCount}-${name}`,
 			items: [
 				{
-					id: 1,
+					id: `item-${itemCount}`,
 					heading: 'Placeholder...',
 					text: 'Placeholder...',
 				}
@@ -29,8 +31,9 @@ const PageBuilder = () => {
 	}
 
 	const addCard = sectionId => {
+		setItemCount(itemCount + 1);
 		const newItem = {
-			id: 1,
+			id: `item-${itemCount}`,
 			heading: 'Placeholder...',
 			text: 'Placeholder...',
 		}
