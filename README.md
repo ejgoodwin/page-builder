@@ -5,7 +5,7 @@ Build a page by adding components. Includes: reordering, delete components, rend
 ![page builder wireframe](src/page-builder-wireframe.png)
 
 ## Homepage design
-![page builder wireframe](homepage-design.png)
+![page builder wireframe](homepage-design-v2.jpg)
 
 ## Run
 `npm start`
