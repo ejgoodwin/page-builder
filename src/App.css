@@ -222,9 +222,9 @@ img {
 }
 
 .pb-section-card {
-  align-items: center;
+  /* align-items: center;
   display: flex;
-  gap: 16px;
+  gap: 16px; */
 }
 
 .pb-section-delete {
@@ -273,6 +273,20 @@ img {
   background: url(images/homepage-cta.svg) no-repeat;
   background-position: bottom;
   background-size: 100%;
+}
+
+.pb-tab-content {
+  display: none;
+}
+
+.pb-tab-content--show {
+  display: block;
+}
+
+.pb-section-item {
+  display: grid;
+  gap: 16px;
+  grid-template: auto / repeat(2, 1fr) 200px;
 }
 
 /* Material icon rules */

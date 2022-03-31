@@ -13,7 +13,7 @@ const Builder = ({ addCard, addSavedSection, data, deleteComponent, moveComponen
 				</div> */}
 			</header>
 
-			{data.map((item, i) => <BuilderSection addCard={addCard} addSavedSection={addSavedSection} key={item.id} section={item} />)}
+			{data.map((item, i) => <BuilderSection addCard={addCard} addSavedSection={addSavedSection} deleteComponent={deleteComponent} key={item.id} section={item} />)}
 
 			<section>
 				<div className="pb-section pb-section-empty">
