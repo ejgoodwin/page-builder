@@ -9,7 +9,7 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 	const [sectionPadding, setSectionPadding] = useState('');
 	const [sectionBackgroundColour, setSectionBackgroundColour] = useState('');
 
-  const inputSectionClassesChange = (event) => setSectionClasses(event.target.value);
+	const inputSectionClassesChange = (event) => setSectionClasses(event.target.value);
 	const inputSectionPaddingChange = (event) => setSectionPadding(event.target.value);
 	const inputSectionBackgroundColourChange = (event) => setSectionBackgroundColour(event.target.value);
 
@@ -51,17 +51,17 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 		const sectionClone = structuredClone(sectionData);
 		addSavedSection(sectionClone);
 	}
-	
+
 	return (
 		<section className={`pb-section pb-section-${section.component}`}>
 			<span className="pb-section-component-name">{section.component}</span>
-			
+
 			<div className="pb-tab-headings">
 				<button className={`pb-tab-link ${tabActiveItem ? 'pb-tab-link--active' : ''}`} onClick={() => setTabActiveItem(true)}>Item</button>
 				<button className={`pb-tab-link ${!tabActiveItem ? 'pb-tab-link--active' : ''}`} onClick={() => setTabActiveItem(false)}>Section</button>
 			</div>
 			<div className={`pb-tab-content ${tabActiveItem ? 'pb-tab-content--show' : ''}`}>
-				{section.items.map(item => <BuilderItem item={item} key={item.id} updateItemData={updateItemData} /> 	)}
+				{section.items.map(item => <BuilderItem item={item} key={item.id} updateItemData={updateItemData} />)}
 				{section.component === 'card' && section.items.length < 3 ?
 					<button className="button button-small button-icon" onClick={() => addCard(section.id)}>
 						<span className="material-icons md-18">add</span> Add card
@@ -76,7 +76,7 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 							className="pb-section-text-input"
 							id={`classes-${section.id}`}
 							placeholder="Heading..."
-							type="text" 
+							type="text"
 							onChange={(e) => inputSectionClassesChange(e)}
 							onBlur={() => updateSectionData(sectionClasses, 'classes')}
 							value={sectionClasses} />
@@ -88,7 +88,7 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 							className="pb-section-text-input"
 							id={`padding-${section.id}`}
 							placeholder="top right bottom left"
-							type="text" 
+							type="text"
 							onChange={(e) => inputSectionPaddingChange(e)}
 							onBlur={() => updateSectionData(sectionPadding, 'padding')}
 							value={sectionPadding} />
@@ -100,28 +100,27 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 							className="pb-section-text-input"
 							id={`background-colour-${section.id}`}
 							placeholder="Hex value"
-							type="text" 
+							type="text"
 							onChange={(e) => inputSectionBackgroundColourChange(e)}
 							onBlur={() => updateSectionData(sectionBackgroundColour, 'background')}
 							value={sectionBackgroundColour} />
 					</div>
 				</div>
 			</div>
-			
 
 			<button onClick={saveSection}>Save</button>
 			<button className="button pb-section-delete button-icon-round" onClick={() => deleteComponent(section.id)}>
 				<span className="material-icons">close</span>
 			</button>
-				<div className="pb-section-move-buttons">
-					<button className="button button-icon-round" disabled={first} onClick={() => moveComponent('up', section.id)}>
-						<span className="material-icons">arrow_drop_up</span>
-					</button>
-					<button className="button button-icon-round" disabled={last} onClick={() => moveComponent('down', section.id)}>
-						<span className="material-icons">arrow_drop_down</span>
-					</button>
-				</div>
-		
+			<div className="pb-section-move-buttons">
+				<button className="button button-icon-round" disabled={first} onClick={() => moveComponent('up', section.id)}>
+					<span className="material-icons">arrow_drop_up</span>
+				</button>
+				<button className="button button-icon-round" disabled={last} onClick={() => moveComponent('down', section.id)}>
+					<span className="material-icons">arrow_drop_down</span>
+				</button>
+			</div>
+
 		</section>
 	);
 }
