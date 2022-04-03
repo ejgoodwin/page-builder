@@ -73,13 +73,15 @@ const PageBuilder = () => {
 		setBuilderData(builderDataClone);
 	}
 
-	const inputTextChange = (event, sectionId, itemIndex, property) => {
+	const addSavedSection = savedSection => {
+		console.log(savedSection);
 		const builderDataClone = structuredClone(builderData);
-		builderDataClone.forEach(item => {
-			if (item.id === sectionId) {
-				item.items[itemIndex][property] = event.target.value;
+		for (const sectionIndex in builderDataClone) {
+			if (builderDataClone[sectionIndex].id === savedSection.id) {
+				builderDataClone[sectionIndex] = savedSection;
+				break;
 			}
-		});
+		}
 		setBuilderData(builderDataClone);
 	}
 
@@ -88,9 +90,9 @@ const PageBuilder = () => {
 			<Sidebar addComponent={addComponent} />
 			<Builder
 				addCard={addCard}
+				addSavedSection={addSavedSection}
 				data={builderData}
 				deleteComponent={deleteComponent}
-				inputTextChange={inputTextChange}
 				moveComponent={moveComponent} />
 		</div>
 	);

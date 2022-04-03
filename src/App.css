@@ -221,12 +221,6 @@ img {
   left: -5px;
 }
 
-.pb-section-card {
-  align-items: center;
-  display: flex;
-  gap: 16px;
-}
-
 .pb-section-delete {
   margin: 0;
   position: absolute;
@@ -273,6 +267,37 @@ img {
   background: url(images/homepage-cta.svg) no-repeat;
   background-position: bottom;
   background-size: 100%;
+}
+
+.pb-tab-content {
+  display: none;
+  min-height: 210px;
+  padding-top: 16px;
+}
+
+.pb-tab-content--show {
+  display: block;
+}
+
+.pb-tab-headings {
+  border-bottom: 1px solid lightgray;
+}
+
+.pb-tab-link {
+  border: 1px solid #D1D0D0;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  padding: .25rem .5rem;
+}
+
+.pb-tab-link--active {
+  background: white;
+}
+
+.pb-section-item {
+  display: grid;
+  gap: 16px;
+  grid-template: auto / repeat(3, 1fr);
 }
 
 /* Material icon rules */
