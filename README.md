@@ -1,11 +1,12 @@
 # Page builder
 Build a page by adding components. Includes: reordering, delete components, renders example.
 
-## Wireframes
-![page builder wireframe](src/page-builder-wireframe.png)
-
 ## Homepage design
-![page builder wireframe](homepage-design-v2.jpg)
+![page builder design](homepage-design-v2.jpg)
+
+## Builder design
+![page builder design](builder-1.jpg)
+![page builder design](builder-2.jpg)
 
 ## Run
 `npm start`
