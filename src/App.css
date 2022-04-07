@@ -78,7 +78,7 @@ img {
 
 .header {
   align-items: center;
-  background: #EDF8FD;
+  background: #2D344D;
   display: flex;
   justify-content: space-between;
   padding: .5rem 1rem;
@@ -86,15 +86,14 @@ img {
 
 .header__link {
   border-radius: 4px;
-  color: #016398;
+  color: #ECF8FD;
   display: inline-block;
   padding: .25rem .5rem;
   text-decoration: none;
 }
 
 .header__link:hover {
-  background-color: #e4f5fd;
-  color: #01507a;
+  background-color: #343c57;
 }
 
 .header__lockup {
@@ -117,6 +116,13 @@ img {
   min-height: 350px;
 }
 
+.hero__item {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
 .hero--centered .hero__item-text {
   text-align: center;
 }
@@ -128,6 +134,15 @@ img {
 .hero__heading {
   font-size: var(--hero-heading-font-size, 3rem);
   margin: 0 0 1rem;
+}
+
+.hero__item-media {
+  display: var(--hero-item-media-display, none);
+  width: 40%;
+}
+
+.hero__item-media img {
+  width: 100%;
 }
 
 .hero p {
@@ -256,7 +271,7 @@ img {
   background: url(images/homepage-hero.svg) no-repeat;
   background-position: 90% 18px;
   background-size: cover;
-  padding-top: var(--pb-homepage-hero-padding-top, 2rem);
+  padding: var(--pb-homepage-hero-padding, 3rem 0);
 }
 
 .pb-text-block-cta {
@@ -318,10 +333,11 @@ img {
     --h2-font-size: 2rem;
 
     --hero-heading-font-size: 4rem;
+    --hero-item-media-display: block;
     --hero-subheading-font-size: 2rem;
 
     --section-padding: 5rem 1rem;
     
-    --pb-homepage-hero-padding-top: 3rem; 
+    --pb-homepage-hero-padding: 4rem 0 7rem; 
   }
 }
