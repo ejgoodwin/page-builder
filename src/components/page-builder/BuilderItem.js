@@ -7,14 +7,18 @@ const BuilderItem = ({ item, updateItemData }) => {
   const [backgroundColor, setBackgroundColor] = useState('');
   const [textColor, setTextColor] = useState('');
   const [imageUrl, setImageUrl] = useState('');
-  const [padding, setPadding] = useState('');
+  const [padding, setPadding] = useState([]);
 
   const inputHeadingTextChange = (event) => setHeadingText(event.target.value);
 	const inputBodyTextChange = (event) => setbodyText(event.target.value);
   const inputBackgroundColorChange = (event) => setBackgroundColor(event.target.value);
   const inputTextColorChange = (event) => setTextColor(event.target.value);
   const inputImageChange = (event) => setImageUrl(event.target.value);
-  const inputPaddingChange = (event) => setPadding(event.target.value);
+  const inputPaddingChange = (event, side) => {
+    const paddingClone = [...padding];
+    paddingClone[side] = event.target.value;
+    setPadding(paddingClone);
+  } 
 
 
   return (
@@ -56,15 +60,38 @@ const BuilderItem = ({ item, updateItemData }) => {
 
       {/* Padding and colours */}
       <div className="pb-section-item__input-group">
-        <label for={`padding-${item.id}`}>Padding</label>
+        <label for={`padding-${item.id}`}>Padding (px)</label>
+        <div className="pb-section-item__padding">
           <input
             className="pb-section-text-input"
             id={`padding-${item.id}`}
-            placeholder="top right bottom left"
+            placeholder="16"
             type="text" 
-            onChange={(e) => inputPaddingChange(e)}
+            onChange={(e) => inputPaddingChange(e, 0)}
             onBlur={() => updateItemData(padding, item.id, 'padding')}
-            value={padding} />
+            value={padding[0]} />
+          <input
+            className="pb-section-text-input"
+            placeholder="16"
+            type="text" 
+            onChange={(e) => inputPaddingChange(e, 1)}
+            onBlur={() => updateItemData(padding, item.id, 'padding')}
+            value={padding[1]} />
+          <input
+            className="pb-section-text-input"
+            placeholder="16"
+            type="text" 
+            onChange={(e) => inputPaddingChange(e, 2)}
+            onBlur={() => updateItemData(padding, item.id, 'padding')}
+            value={padding[2]} />
+          <input
+            className="pb-section-text-input"
+            placeholder="16"
+            type="text" 
+            onChange={(e) => inputPaddingChange(e, 3)}
+            onBlur={() => updateItemData(padding, item.id, 'padding')}
+            value={padding[3]} />
+        </div>
         <label for={`background-colour-${item.id}`}>Background colour</label>
         <input
           className="pb-section-text-input"
