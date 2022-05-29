@@ -8,6 +8,7 @@ const BuilderItem = ({ item, updateItemData }) => {
   const [textColor, setTextColor] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [padding, setPadding] = useState([]);
+  const [paddingGuideHightlight, setPaddingGuideHightlight] = useState('');
 
   const inputHeadingTextChange = (event) => setHeadingText(event.target.value);
 	const inputBodyTextChange = (event) => setbodyText(event.target.value);
@@ -18,7 +19,8 @@ const BuilderItem = ({ item, updateItemData }) => {
     const paddingClone = [...padding];
     paddingClone[side] = event.target.value;
     setPadding(paddingClone);
-  } 
+  }
+  const focusGuide = (side) => setPaddingGuideHightlight(side);
 
 
   return (
@@ -62,6 +64,12 @@ const BuilderItem = ({ item, updateItemData }) => {
       <div className="pb-section-item__input-group">
         <label for={`padding-${item.id}`}>Padding (px)</label>
         <div className="pb-section-item__padding">
+          <div className={`pb-section-item__padding-guide ${paddingGuideHightlight}`}>
+            <span className="pb-section-item__padding-guide-line pb-section-item__padding-guide-line--1"></span>
+            <span className="pb-section-item__padding-guide-line pb-section-item__padding-guide-line--2"></span>
+            <span className="pb-section-item__padding-guide-line pb-section-item__padding-guide-line--3"></span>
+            <span className="pb-section-item__padding-guide-line pb-section-item__padding-guide-line--4"></span>
+          </div>
           <input
             className="pb-section-text-input"
             id={`padding-${item.id}`}
@@ -69,6 +77,7 @@ const BuilderItem = ({ item, updateItemData }) => {
             type="text" 
             onChange={(e) => inputPaddingChange(e, 0)}
             onBlur={() => updateItemData(padding, item.id, 'padding')}
+            onFocus={() => focusGuide('top')}
             value={padding[0]} />
           <input
             className="pb-section-text-input"
@@ -76,6 +85,7 @@ const BuilderItem = ({ item, updateItemData }) => {
             type="text" 
             onChange={(e) => inputPaddingChange(e, 1)}
             onBlur={() => updateItemData(padding, item.id, 'padding')}
+            onFocus={() => focusGuide('right')}
             value={padding[1]} />
           <input
             className="pb-section-text-input"
@@ -83,6 +93,7 @@ const BuilderItem = ({ item, updateItemData }) => {
             type="text" 
             onChange={(e) => inputPaddingChange(e, 2)}
             onBlur={() => updateItemData(padding, item.id, 'padding')}
+            onFocus={() => focusGuide('bottom')}
             value={padding[2]} />
           <input
             className="pb-section-text-input"
@@ -90,6 +101,7 @@ const BuilderItem = ({ item, updateItemData }) => {
             type="text" 
             onChange={(e) => inputPaddingChange(e, 3)}
             onBlur={() => updateItemData(padding, item.id, 'padding')}
+            onFocus={() => focusGuide('left')}
             value={padding[3]} />
         </div>
         <label for={`background-colour-${item.id}`}>Background colour</label>
@@ -97,7 +109,7 @@ const BuilderItem = ({ item, updateItemData }) => {
           className="pb-section-text-input"
           id={`background-colour-${item.id}`}
           placeholder="Background color hex value"
-          type="text" 
+          type="color" 
           onChange={(e) => inputBackgroundColorChange(e)}
           onBlur={() => updateItemData(backgroundColor, item.id, 'background')}
           value={backgroundColor} />
@@ -106,7 +118,7 @@ const BuilderItem = ({ item, updateItemData }) => {
           className="pb-section-text-input"
           id={`text-colour-${item.id}`}
           placeholder="Text colour hex value"
-          type="text" 
+          type="color" 
           onChange={(e) => inputTextColorChange(e)}
           onBlur={() => updateItemData(textColor, item.id, 'color')}
           value={textColor} />
