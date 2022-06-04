@@ -117,6 +117,7 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 										onChange={(e) => inputSectionBackgroundColourChange(e)}
 										onBlur={() => updateSectionData(sectionBackgroundColour, 'background')}
 										value={sectionBackgroundColour} />
+									<span className="pb-colour-picker__outline"></span>
 							</div>
 						</div>
 					</div>

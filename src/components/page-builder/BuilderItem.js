@@ -108,6 +108,7 @@ const BuilderItem = ({ item, updateItemData }) => {
         <label for={`background-colour-${item.id}`}>Background colour</label>
         <div className="pb-colour-picker">
           <img className="pb-colour-picker__icon" src={colourWheel} alt="" />
+          
           <input
             className="pb-section-text-input pb-colour-picker__input"
             id={`background-colour-${item.id}`}
@@ -116,6 +117,7 @@ const BuilderItem = ({ item, updateItemData }) => {
             onChange={(e) => inputBackgroundColorChange(e)}
             onBlur={() => updateItemData(backgroundColor, item.id, 'background')}
             value={backgroundColor} />
+          <span className="pb-colour-picker__outline"></span>
         </div>
         <label for={`text-colour-${item.id}`}>Text colour</label>
         <div className="pb-colour-picker">
@@ -128,6 +130,7 @@ const BuilderItem = ({ item, updateItemData }) => {
             onChange={(e) => inputTextColorChange(e)}
             onBlur={() => updateItemData(textColor, item.id, 'color')}
             value={textColor} />
+          <span className="pb-colour-picker__outline"></span>
         </div>
       </div>
     </div>

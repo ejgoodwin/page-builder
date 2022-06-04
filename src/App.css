@@ -236,6 +236,16 @@ img {
   opacity: 0;
   z-index: 1;
 }
+.pb-colour-picker__outline {
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  inset: -2px;
+}
+
+.pb-colour-picker__input:focus + .pb-colour-picker__outline {
+  outline: -webkit-focus-ring-color auto 1px;
+}
 
 .pb-container {
   display: grid;
