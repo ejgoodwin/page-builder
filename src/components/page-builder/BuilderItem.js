@@ -1,4 +1,5 @@
 import { useState } from "react";
+import colourWheel from "../../images/colour-wheel.png";
 
 const BuilderItem = ({ item, updateItemData }) => {
 
@@ -62,7 +63,7 @@ const BuilderItem = ({ item, updateItemData }) => {
 
       {/* Padding and colours */}
       <div className="pb-section-item__input-group">
-        <label for={`padding-${item.id}`}>Padding (px)</label>
+        <label for={`padding-${item.id}`}>Padding</label>
         <div className="pb-section-item__padding">
           <div className={`pb-section-item__padding-guide ${paddingGuideHightlight}`}>
             <span className="pb-section-item__padding-guide-line pb-section-item__padding-guide-line--1"></span>
@@ -73,7 +74,7 @@ const BuilderItem = ({ item, updateItemData }) => {
           <input
             className="pb-section-text-input"
             id={`padding-${item.id}`}
-            placeholder="16"
+            placeholder="px"
             type="text" 
             onChange={(e) => inputPaddingChange(e, 0)}
             onBlur={() => updateItemData(padding, item.id, 'padding')}
@@ -81,7 +82,7 @@ const BuilderItem = ({ item, updateItemData }) => {
             value={padding[0]} />
           <input
             className="pb-section-text-input"
-            placeholder="16"
+            placeholder="px"
             type="text" 
             onChange={(e) => inputPaddingChange(e, 1)}
             onBlur={() => updateItemData(padding, item.id, 'padding')}
@@ -89,7 +90,7 @@ const BuilderItem = ({ item, updateItemData }) => {
             value={padding[1]} />
           <input
             className="pb-section-text-input"
-            placeholder="16"
+            placeholder="px"
             type="text" 
             onChange={(e) => inputPaddingChange(e, 2)}
             onBlur={() => updateItemData(padding, item.id, 'padding')}
@@ -97,7 +98,7 @@ const BuilderItem = ({ item, updateItemData }) => {
             value={padding[2]} />
           <input
             className="pb-section-text-input"
-            placeholder="16"
+            placeholder="px"
             type="text" 
             onChange={(e) => inputPaddingChange(e, 3)}
             onBlur={() => updateItemData(padding, item.id, 'padding')}
@@ -105,23 +106,29 @@ const BuilderItem = ({ item, updateItemData }) => {
             value={padding[3]} />
         </div>
         <label for={`background-colour-${item.id}`}>Background colour</label>
-        <input
-          className="pb-section-text-input"
-          id={`background-colour-${item.id}`}
-          placeholder="Background color hex value"
-          type="color" 
-          onChange={(e) => inputBackgroundColorChange(e)}
-          onBlur={() => updateItemData(backgroundColor, item.id, 'background')}
-          value={backgroundColor} />
+        <div className="pb-colour-picker">
+          <img className="pb-colour-picker__icon" src={colourWheel} alt="" />
+          <input
+            className="pb-section-text-input pb-colour-picker__input"
+            id={`background-colour-${item.id}`}
+            placeholder="Background color hex value"
+            type="color" 
+            onChange={(e) => inputBackgroundColorChange(e)}
+            onBlur={() => updateItemData(backgroundColor, item.id, 'background')}
+            value={backgroundColor} />
+        </div>
         <label for={`text-colour-${item.id}`}>Text colour</label>
-        <input
-          className="pb-section-text-input"
-          id={`text-colour-${item.id}`}
-          placeholder="Text colour hex value"
-          type="color" 
-          onChange={(e) => inputTextColorChange(e)}
-          onBlur={() => updateItemData(textColor, item.id, 'color')}
-          value={textColor} />
+        <div className="pb-colour-picker">
+          <img className="pb-colour-picker__icon" src={colourWheel} alt="" />
+          <input
+            className="pb-section-text-input pb-colour-picker__input"
+            id={`text-colour-${item.id}`}
+            placeholder="Text colour hex value"
+            type="color" 
+            onChange={(e) => inputTextColorChange(e)}
+            onBlur={() => updateItemData(textColor, item.id, 'color')}
+            value={textColor} />
+        </div>
       </div>
     </div>
   );

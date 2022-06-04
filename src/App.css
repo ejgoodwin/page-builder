@@ -219,6 +219,24 @@ img {
   padding: 24px 32px;
 }
 
+.pb-colour-picker {
+  height: 25px;
+  position: relative;
+  width: 25px;
+}
+
+.pb-colour-picker__icon {
+  inset: 0;
+  position: absolute;
+}
+
+.pb-colour-picker__input {
+  cursor: pointer;
+  position: relative;
+  opacity: 0;
+  z-index: 1;
+}
+
 .pb-container {
   display: grid;
   grid-template: auto / 350px 1fr;

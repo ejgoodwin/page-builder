@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import BuilderItem from "./BuilderItem";
+import colourWheel from "../../images/colour-wheel.png";
 
 const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last, moveComponent, section }) => {
 
@@ -106,14 +107,17 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 
 						<div className="pb-section-item__input-group">
 							<label for={`background-colour-${section.id}`}>Background colour</label>
-							<input
-								className="pb-section-text-input"
-								id={`background-colour-${section.id}`}
-								placeholder="Hex value"
-								type="text"
-								onChange={(e) => inputSectionBackgroundColourChange(e)}
-								onBlur={() => updateSectionData(sectionBackgroundColour, 'background')}
-								value={sectionBackgroundColour} />
+							<div className="pb-colour-picker">
+         				 <img className="pb-colour-picker__icon" src={colourWheel} alt="" />
+									<input
+										className="pb-section-text-input pb-colour-picker__input"
+										id={`background-colour-${section.id}`}
+										placeholder="Hex value"
+										type="color"
+										onChange={(e) => inputSectionBackgroundColourChange(e)}
+										onBlur={() => updateSectionData(sectionBackgroundColour, 'background')}
+										value={sectionBackgroundColour} />
+							</div>
 						</div>
 					</div>
 				</div>
