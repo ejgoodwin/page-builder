@@ -12,8 +12,10 @@ const SectionItem = ({ component, item }) => {
 			<div className={`${component}__item-text`}>
 				{item.heading && heading}
 				{item.text && <p>{item.text}</p>}
-				{item.buttons && item.buttons.map(button =>
-					<Link className={`button ${button.classes}`} to={button.link ? button.link : ''}>{button.label}</Link>)}
+				{item.buttons ? item.buttons
+					.filter(button => button.label.length > 0)
+					.map(button => 
+					<Link className={`button ${button.classes}`} to={button.link ? button.link : ''}>{button.label}</Link>) : '' }
 			</div>
 			<div className={`${component}__item-media`}>
 				{item.image && <img src={item.image} alt="" />}

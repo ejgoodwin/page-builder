@@ -82,7 +82,7 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 				<div className={`pb-tab-content ${!tabActiveItem ? 'pb-tab-content--show' : ''}`}>
 					<div className="pb-section-item">
 						<div className="pb-section-item__input-group">
-							<label for={`classes-${section.id}`}>Classes</label>
+							<label htmlFor={`classes-${section.id}`}>Classes</label>
 							<input
 								className="pb-section-text-input"
 								id={`classes-${section.id}`}
@@ -94,7 +94,7 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 						</div>
 
 						<div className="pb-section-item__input-group">
-							<label for={`padding-${section.id}`}>Padding</label>
+							<label htmlFor={`padding-${section.id}`}>Padding</label>
 							<input
 								className="pb-section-text-input"
 								id={`padding-${section.id}`}
@@ -106,7 +106,7 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 						</div>
 
 						<div className="pb-section-item__input-group">
-							<label for={`background-colour-${section.id}`}>Background colour</label>
+							<label htmlFor={`background-colour-${section.id}`}>Background colour</label>
 							<div className="pb-colour-picker">
          				 <img className="pb-colour-picker__icon" src={colourWheel} alt="" />
 									<input

@@ -253,6 +253,42 @@ img {
   min-height: 100vh;
 }
 
+.pb-modal {
+  align-items: center;
+  background: rgba(0,0,0, .5);
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
+.pb-modal--show {
+  display: flex;
+}
+
+.pb-modal-main {
+  background: white;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 600px;
+  min-width: min(400px, 90vw);
+  padding: 1rem;
+  position: relative;
+}
+
+.pb-modal-main footer {
+  padding-top: 16px;
+}
+
+.pb-modal__close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
 .pb-section {
   border: 1px solid lightgrey;
   border-radius: 0 0 4px 4px;
