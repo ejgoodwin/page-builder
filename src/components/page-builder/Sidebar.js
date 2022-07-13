@@ -6,10 +6,18 @@ const Sidebar = ({ addComponent }) => {
 	return (
 		<div className="pb-sidebar">
 			<div className="pb-tab-headings">
-				<button className={`pb-tab-link 'pb-tab-link--active'`} onClick={() => setActiveTab(1)}>Components</button>
-				<button className={`pb-tab-link 'pb-tab-link--active'`} onClick={() => setActiveTab(2)}>Branding</button>
+				<button
+					className={`pb-tab-link ${activeTab === 1 ? 'pb-tab-link--active' : ''}`}
+					onClick={() => setActiveTab(1)}>
+						Components
+				</button>
+				<button
+					className={`pb-tab-link ${activeTab === 2 ? 'pb-tab-link--active' : ''}`}
+					onClick={() => setActiveTab(2)}>
+						Branding
+				</button>
 			</div>
-			
+
 			{/* Update to switch statement */}
 			{activeTab === 1 ? <ComponentsTab addComponent={addComponent} /> : <BrandingTab />}
 		</div>
