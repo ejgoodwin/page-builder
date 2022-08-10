@@ -1,27 +1,30 @@
+import { useState } from "react";
 import Page from "../Page";
 import BuilderSection from "./BuilderSection";
 
 const Builder = ({ addCard, addSavedSection, data, deleteComponent, moveComponent }) => {
 
+	const [modalIsOpen, setModalIsOpen] = useState(false);
+
 	return (
 		<div className="pb-builder">
 			<header className="pb-header">
 				<h1>Page builder</h1>
-				{/* <div>
-					<button disabled={data.length < 1} className="button">View code</button>
-					<button disabled={data.length < 1} className="button">Preview page</button>
-				</div> */}
+				<div>
+					{/* <button disabled={data.length < 1} className="button">View code</button> */}
+					<button disabled={data.length < 1} className="button" onClick={() => setModalIsOpen(!modalIsOpen)}>Preview page</button>
+				</div>
 			</header>
 
-			{data.map((item, i) => 
-				<BuilderSection 
-					addCard={addCard} 
-					addSavedSection={addSavedSection} 
+			{data.map((item, i) =>
+				<BuilderSection
+					addCard={addCard}
+					addSavedSection={addSavedSection}
 					deleteComponent={deleteComponent}
 					first={i === 0}
-					last={i === data.length - 1} 
+					last={i === data.length - 1}
 					moveComponent={moveComponent}
-					key={item.id} 
+					key={item.id}
 					section={item} />)}
 
 			<section>
@@ -30,9 +33,20 @@ const Builder = ({ addCard, addSavedSection, data, deleteComponent, moveComponen
 				</div>
 			</section>
 
-			{/* Temp - maybe a modal or new page. */}
-			<h2>Preview</h2>
-			<Page data={data} />
+			{modalIsOpen ?
+				<div className="pb-preview-modal">
+					<button
+						aria-label="close"
+						className="pb-preview-modal__close" 
+						onClick={() => setModalIsOpen(!modalIsOpen)}>
+						<span className="material-icons">close</span>
+					</button>
+					<div className="pb-preview-modal__main">
+						<Page data={data} />
+					</div>
+				</div>
+				: ''
+			}
 		</div>
 	);
 }

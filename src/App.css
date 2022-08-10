@@ -391,6 +391,28 @@ img {
   background-size: 100%;
 }
 
+.pb-preview-modal {
+  background: rgba(0,0,0,0.8);
+  inset: 0;
+  position: fixed;
+}
+
+.pb-preview-modal__close {
+  background: none;
+  border: 0;
+  color: white;
+  margin: 0;
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+
+}
+
+.pb-preview-modal__main {
+  background: white;
+  margin: 2rem;
+}
+
 .pb-tab-content {
   min-height: 210px;
   padding-top: 4px;

@@ -15,6 +15,7 @@ function App() {
         <Route path="/" element={ <Page data={homePageData} /> }></Route>
         <Route path="example-page" element={ <Page data={testData} /> }></Route>
         <Route path="page-builder" element={ <PageBuilder /> }></Route>
+        <Route path="preview" element={ <Page data={testData} /> }></Route>
         {/* <Route path="/*" element={ <ErrorPage /> }></Route> */}
       </Routes>
     </div>

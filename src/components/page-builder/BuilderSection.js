@@ -86,7 +86,6 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 	);
 }
 
-// TODO: Fix tabs.
 function ItemTab( {section, addCard, updateItemData }) {
 	return (
 		<div className='pb-tab-content'>
