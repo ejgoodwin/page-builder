@@ -12,7 +12,7 @@ const Builder = ({ addCard, addSavedSection, data, deleteComponent, moveComponen
 				<h1>Page builder</h1>
 				<div>
 					{/* <button disabled={data.length < 1} className="button">View code</button> */}
-					<button disabled={data.length < 1} className="button" onClick={() => setModalIsOpen(!modalIsOpen)}>Preview page</button>
+					<button disabled={data.length < 1} className="button button--secondary" onClick={() => setModalIsOpen(!modalIsOpen)}>Preview page</button>
 				</div>
 			</header>
 

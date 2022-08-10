@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import BuilderItem from "./BuilderItem";
-import colourWheel from "../../images/colour-wheel.png";
+import Padding from "./items/Padding";
+import Color from "./items/Color";
 
 const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last, moveComponent, section }) => {
 
 	const [sectionData, setSectionData] = useState(section);
 	const [tabActiveItem, setTabActiveItem] = useState(1);
-
-
-	// const inputSectionClassesChange = (event) => setSectionClasses(event.target.value);
-	// const inputSectionPaddingChange = (event) => setSectionPadding(event.target.value);
-	// const inputSectionBackgroundColourChange = (event) => setSectionBackgroundColour(event.target.value);
 
 	useEffect(() => {
 		setSectionData(section);
@@ -18,12 +14,13 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 
 	const validatePadding = value => {
 		// Add 'px' to padding string. TODO: validate, strip existing characters.
-		value = value.join('px ');
+		// Empty values update to 0 and join with 'px'.
+		value = value.map(item => item ? item : 0).join('px ');
 		value += 'px';
 		return value;
 	}
 
-	const updateItemData = (value, itemId, property) => {
+	const updateItemData = (value, property, itemId) => {
 		const sectionClone = structuredClone(sectionData);
 		if (property === 'padding') {
 			value = validatePadding(value);
@@ -35,6 +32,7 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 			}
 		}
 		setSectionData(sectionClone);
+		addSavedSection(sectionClone);
 	}
 
 	const updateSectionData = (value, property) => {
@@ -44,10 +42,6 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 		}
 		sectionClone[property] = value;
 		setSectionData(sectionClone);
-	}
-
-	const saveSection = () => {
-		const sectionClone = structuredClone(sectionData);
 		addSavedSection(sectionClone);
 	}
 
@@ -56,22 +50,25 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 			<div className="pb-section-header">
 				<h3 className="pb-section-header-heading">{section.component}</h3>
 				<div className="pb-section-header-buttons">
-					<button className="button button-icon button-small button--red" onClick={() => deleteComponent(section.id)}>
-						<span className="material-icons md-18">close</span>Delete
-					</button>
-					<button className="button button-icon button-small button--primary" onClick={saveSection}>
-						<span className="material-icons md-18">check</span>Save
+					<button className="button button-icon button-small" onClick={() => deleteComponent(section.id)}>
+						<span class="material-icons">delete</span>
 					</button>
 				</div>
 			</div>
 			<div className={`pb-section pb-section-${section.component}`}>
 				<div className="pb-tab-headings">
-					<button className={`pb-tab-link ${tabActiveItem ? 'pb-tab-link--active' : ''}`} onClick={() => setTabActiveItem(1)}>Item</button>
-					<button className={`pb-tab-link ${!tabActiveItem ? 'pb-tab-link--active' : ''}`} onClick={() => setTabActiveItem(2)}>Section</button>
+					<button className={`pb-tab-link ${tabActiveItem === 1 ? 'pb-tab-link--active' : ''}`} onClick={() => setTabActiveItem(1)}>Item</button>
+					<button className={`pb-tab-link ${tabActiveItem === 2 ? 'pb-tab-link--active' : ''}`} onClick={() => setTabActiveItem(2)}>Section</button>
 				</div>
 
-				{/* Update to use switch or something more scaleable than if */}
-				{tabActiveItem === 1 ? <ItemTab updateItemData={updateItemData} section={section} addCard={addCard} /> : <SectionTab section={section} updateSectionData={updateSectionData} />}
+				{/* TODO: Update to use something more scaleable than 1,2 state */}
+				<div className={tabActiveItem === 1 ? 'pb-show' : 'pb-hide'} >
+					<ItemTab updateItemData={updateItemData} section={section} addCard={addCard} />
+				</div>
+
+				<div className={tabActiveItem === 2 ? 'pb-show' : 'pb-hide'} >
+					<SectionTab section={section} updateSectionData={updateSectionData} />
+				</div>
 
 				<div className="pb-section-move-buttons">
 					<button className="button button-icon-round" disabled={first} onClick={() => moveComponent('up', section.id)}>
@@ -100,8 +97,6 @@ function ItemTab( {section, addCard, updateItemData }) {
 
 function SectionTab( {section, updateSectionData }) {
 	const [sectionClasses, setSectionClasses] = useState('');
-	const [sectionPadding, setSectionPadding] = useState('');
-	const [sectionBackgroundColour, setSectionBackgroundColour] = useState('');
 
 	return (
 		<div className='pb-tab-content'>
@@ -119,31 +114,11 @@ function SectionTab( {section, updateSectionData }) {
 				</div>
 
 				<div className="pb-section-item__input-group">
-					<label htmlFor={`padding-${section.id}`}>Padding</label>
-					<input
-						className="pb-section-text-input"
-						id={`padding-${section.id}`}
-						placeholder="top right bottom left"
-						type="text"
-						onChange={(e) => setSectionPadding(e.target.value)}
-						onBlur={() => updateSectionData(sectionPadding, 'padding')}
-						value={sectionPadding} />
+					<Padding id={section.id} updateData={updateSectionData} />
 				</div>
 
 				<div className="pb-section-item__input-group">
-					<label htmlFor={`background-colour-${section.id}`}>Background colour</label>
-					<div className="pb-colour-picker">
-							<img className="pb-colour-picker__icon" src={colourWheel} alt="" />
-							<input
-								className="pb-section-text-input pb-colour-picker__input"
-								id={`background-colour-${section.id}`}
-								placeholder="Hex value"
-								type="color"
-								onChange={(e) => setSectionBackgroundColour(e.target.value)}
-								onBlur={() => updateSectionData(sectionBackgroundColour, 'background')}
-								value={sectionBackgroundColour} />
-							<span className="pb-colour-picker__outline"></span>
-					</div>
+					<Color id={section.id} item="background" label="Background color" updateItemData={updateSectionData} />
 				</div>
 			</div>
 		</div>
