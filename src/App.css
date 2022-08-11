@@ -111,15 +111,17 @@ img {
 }
 
 .header__link {
-  border-radius: 4px;
+  border-bottom: 2px solid transparent;
   color: #ECF8FD;
   display: inline-block;
-  padding: .25rem .5rem;
+  margin: 0 .5rem;
+  padding: .25rem .25rem;
   text-decoration: none;
+  transition: .1s;
 }
 
 .header__link:hover {
-  background-color: #343c57;
+  border-color: #454f72;
 }
 
 .header__lockup {
@@ -225,7 +227,7 @@ img {
 }
 
 .pb-builder {
-  padding: 24px 32px;
+  padding: 24px 32px 24px 38px;
 }
 
 .pb-buttons-item {
@@ -314,7 +316,7 @@ img {
 .pb-section-move-buttons {
   display: flex;
   flex-direction: column;
-  left: -18px;
+  left: -20px;
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
@@ -404,7 +406,7 @@ img {
 }
 
 .pb-text-block-cta {
-  background: linear-gradient(90deg, rgba(5,123,186,1) 27%, rgba(41,193,221,1) 100%);
+  background: linear-gradient(90deg, #057bba 27%, #29c1dd 100%);
 }
 
 .pb-homepage-cta-block-left { 
