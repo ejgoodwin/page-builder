@@ -30,11 +30,11 @@ button {
   padding: .5rem .75rem;
   text-decoration: none;
 }
-
+/* 
 button ~ button,
 .button ~ .button {
   margin-left: 8px;
-}
+} */
 
 .button:not(:disabled):hover {
   background: rgb(229, 229, 229);
@@ -224,6 +224,65 @@ img {
 
 .cta-block--right .cta-block__item-text {
   order: 2;
+}
+
+.pb-branding-color-tile {
+  align-items: center;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  display: flex;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
+
+.pb-branding-color-tile--suggestion {
+  border: none;
+  border-radius: 0;
+}
+
+.pb-branding-color-tile--suggestion:first-of-type {
+  border-radius: 4px 0 0 4px;
+}
+
+.pb-branding-color-tile--suggestion:last-of-type {
+  border-radius: 0 4px 4px 0;
+}
+
+.pb-branding-color-tile-icon {
+  background: rgba(255,255,255,0.4);
+  border-radius: 3px;
+  opacity: 0;
+  transition: .1s;
+}
+
+.pb-branding-color-tile:hover .pb-branding-color-tile-icon {
+  opacity: 1;
+}
+
+.pb-branding-color-tile-add-icon {
+  position: absolute;
+}
+
+.pb-branding-color-tile--active {
+  outline: 1px solid #057BBA;
+}
+
+.pb-branding-color-tile--add {
+  position: relative;
+}
+
+.pb-branding-color-tile-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 16px 0;
+}
+
+.pb-branding-color-tile-suggestions {
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
 }
 
 .pb-builder {
@@ -454,6 +513,7 @@ img {
   border: 1px solid #D1D0D0;
   border-bottom: 0;
   border-radius: 4px 4px 0 0;
+  margin-right: 8px;
   padding: .25rem .5rem;
 }
 

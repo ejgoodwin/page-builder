@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import BackgroundColorContext from "../context/BackgroundColorContext";
 
 const Sidebar = ({ addComponent }) => {
 	const [activeTab, setActiveTab] = useState(1);
@@ -9,12 +10,12 @@ const Sidebar = ({ addComponent }) => {
 				<button
 					className={`pb-tab-link ${activeTab === 1 ? 'pb-tab-link--active' : ''}`}
 					onClick={() => setActiveTab(1)}>
-						Components
+					Components
 				</button>
 				<button
 					className={`pb-tab-link ${activeTab === 2 ? 'pb-tab-link--active' : ''}`}
 					onClick={() => setActiveTab(2)}>
-						Branding
+					Branding
 				</button>
 			</div>
 
@@ -44,9 +45,27 @@ function ComponentsTab({ addComponent }) {
 }
 
 function BrandingTab() {
+	const { items, addITem, removeColor } = useContext(BackgroundColorContext);
+
 	return (
 		<div>
-			Branding coming soon.
+			<label>Colours</label>
+			<div className="pb-branding-color-tile-container">
+				{items.map((colorItem, index) => <button
+					className="pb-branding-color-tile"
+					onClick={() => removeColor(index)}
+					style={{ background: `${colorItem}` }}>
+						<span className="pb-branding-color-tile-icon material-icons md-18">remove</span>
+				</button>)}
+				<button className="pb-branding-color-tile pb-branding-color-tile--add">
+					<span className="pb-branding-color-tile-add-icon material-icons md-18">add</span>
+					<input
+							className="pb-colour-picker__input"
+							onBlur={(e) => addITem(e.target.value)}
+							type="color"
+							/>
+				</button>
+			</div>
 		</div>
 	);
 }

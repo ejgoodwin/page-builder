@@ -37,7 +37,7 @@ const Builder = ({ addCard, addSavedSection, data, deleteComponent, moveComponen
 				<div className="pb-preview-modal">
 					<button
 						aria-label="close"
-						className="pb-preview-modal__close" 
+						className="pb-preview-modal__close"
 						onClick={() => setModalIsOpen(!modalIsOpen)}>
 						<span className="material-icons">close</span>
 					</button>
