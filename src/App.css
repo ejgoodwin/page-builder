@@ -72,6 +72,12 @@ button ~ button,
   background-color: #a2334d;
 }
 
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .button-small {
   padding: .25rem .5rem;
 }

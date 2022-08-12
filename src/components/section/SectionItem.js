@@ -8,18 +8,26 @@ const SectionItem = ({ component, item }) => {
 	const padding = item.padding ? item.padding : '';
 
 	return (
-		<div className={`${component}__item`} style={{ "backgroundColor": backgroundColour, "color":  textColour, "padding": padding}}>
+		<div className={`${component}__item`} style={{ "backgroundColor": backgroundColour, "color": textColour, "padding": padding }}>
 			<div className={`${component}__item-text`}>
 				{item.heading && heading}
 				{item.text && <p>{item.text}</p>}
-				{item.buttons ? item.buttons
-					.filter(button => button.label.length > 0)
-					.map(button => 
-					<Link className={`button ${button.classes}`} to={button.link ? button.link : ''}>{button.label}</Link>) : '' }
+				{item.buttons ? <Buttons buttons={item.buttons} /> : ''}
 			</div>
 			<div className={`${component}__item-media`}>
 				{item.image && <img src={item.image} alt="" />}
 			</div>
+		</div>
+	);
+}
+
+function Buttons({ buttons }) {
+	return (
+		<div className="button-container">
+			{buttons.map((button) =>
+				<Link className={`button ${button.classes}`} to={button.link ? button.link : ''}>
+					{button.label}
+				</Link>)}
 		</div>
 	);
 }
