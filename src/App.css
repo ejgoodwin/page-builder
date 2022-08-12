@@ -30,11 +30,6 @@ button {
   padding: .5rem .75rem;
   text-decoration: none;
 }
-/* 
-button ~ button,
-.button ~ .button {
-  margin-left: 8px;
-} */
 
 .button:not(:disabled):hover {
   background: rgb(229, 229, 229);
@@ -253,6 +248,10 @@ img {
 
 .pb-branding-color-tile--suggestion:last-of-type {
   border-radius: 0 4px 4px 0;
+}
+
+.pb-branding-color-tile--suggestion:only-of-type {
+  border-radius: 4px;
 }
 
 .pb-branding-color-tile-icon {
