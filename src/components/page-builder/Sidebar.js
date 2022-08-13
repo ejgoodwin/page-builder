@@ -1,5 +1,9 @@
 import { useContext, useState } from "react";
 import BackgroundColorContext from "../context/BackgroundColorContext";
+import hero from "../../images/components/hero.png";
+import card from "../../images/components/cards.png";
+import textBlock from "../../images/components/text-block-left.png";
+import textBlockCenter from "../../images/components/text-block-center.png";
 
 const Sidebar = ({ addComponent }) => {
 	const [activeTab, setActiveTab] = useState(1);
@@ -30,15 +34,31 @@ function ComponentsTab({ addComponent }) {
 		<div>
 			<h4>Hero</h4>
 			<div className="pb-sidebar-component">
-				<button className="button" onClick={() => addComponent('hero')}>Left aligned</button>
+				<button className="button pb-sidebar-component__button" onClick={() => addComponent('hero', '')}>
+					<img src={hero} alt="Hero left aligned" />
+					Left aligned
+				</button>
 			</div>
+
 			<h4>Card</h4>
 			<div className="pb-sidebar-component">
-				<button className="button" onClick={() => addComponent('card')}>Card</button>
+				<button className="button pb-sidebar-component__button" onClick={() => addComponent('card', '')}>
+					<img src={card} alt="Card" />
+					Card
+				</button>
 			</div>
+
 			<h4>Text block</h4>
 			<div className="pb-sidebar-component">
-				<button className="button" onClick={() => addComponent('text-block')}>Left aligned</button>
+				<button className="button pb-sidebar-component__button" onClick={() => addComponent('text-block', '')}>
+					<img src={textBlock} alt="Text block left aligned" />
+					Left aligned
+				</button>
+
+				<button className="button pb-sidebar-component__button" onClick={() => addComponent('text-block', 'text-block--center')}>
+					<img src={textBlockCenter} alt="Text block center aligned" />
+					Center aligned
+				</button>
 			</div>
 		</div>
 	);
@@ -55,15 +75,15 @@ function BrandingTab() {
 					className="pb-branding-color-tile"
 					onClick={() => removeColor(index)}
 					style={{ background: `${colorItem}` }}>
-						<span className="pb-branding-color-tile-icon material-icons md-18">remove</span>
+					<span className="pb-branding-color-tile-icon material-icons md-18">remove</span>
 				</button>)}
 				<button className="pb-branding-color-tile pb-branding-color-tile--add">
 					<span className="pb-branding-color-tile-add-icon material-icons md-18">add</span>
 					<input
-							className="pb-colour-picker__input"
-							onBlur={(e) => addITem(e.target.value)}
-							type="color"
-							/>
+						className="pb-colour-picker__input"
+						onBlur={(e) => addITem(e.target.value)}
+						type="color"
+					/>
 				</button>
 			</div>
 		</div>

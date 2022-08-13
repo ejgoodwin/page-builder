@@ -11,13 +11,13 @@ const PageBuilder = () => {
 	const [itemCount, setItemCount] = useState(0);
 	const [sectionCount, setSectionCount] = useState(0);
 
-	const addComponent = name => {
+	const addComponent = (name, classes) => {
 		setSectionCount(sectionCount + 1);
 		setItemCount(itemCount + 1);
 
 		let newData = {
 			component: name,
-			classes: '',
+			classes: classes,
 			id: `${sectionCount}-${name}`,
 			items: [
 				{
@@ -28,7 +28,7 @@ const PageBuilder = () => {
 			]
 		};
 
-		setBuilderData([...builderData, newData]);
+		setBuilderData((prevState) => [...prevState, newData]);
 	}
 
 	const addCard = sectionId => {

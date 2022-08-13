@@ -439,6 +439,7 @@ img {
 
 .pb-section-header-heading {
   margin: 0;
+  text-transform: capitalize;
 }
 
 .pb-section-text-input {
@@ -460,6 +461,16 @@ img {
 .pb-sidebar {
   background: rgb(247, 247, 247);
   padding: 16px;
+}
+
+.pb-sidebar-component {
+  display: grid;
+  gap: 8px;
+  grid-template: auto / repeat(2, 1fr);
+}
+
+.pb-sidebar-component__button {
+  padding: 0.25rem;
 }
 
 .pb-homepage-hero {

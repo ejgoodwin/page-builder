@@ -45,10 +45,12 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 		addSavedSection(sectionClone);
 	}
 
+	const formatComponentName = (component) => component.replaceAll('-', ' ');
+
 	return (
 		<section>
 			<div className="pb-section-header">
-				<h3 className="pb-section-header-heading">{section.component}</h3>
+				<h3 className="pb-section-header-heading">{formatComponentName(section.component)}</h3>
 				<div className="pb-section-header-buttons">
 					<button className="button button-icon button-small" onClick={() => deleteComponent(section.id)}>
 						<span class="material-icons">delete</span>
