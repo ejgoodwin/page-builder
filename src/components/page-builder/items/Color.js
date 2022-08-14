@@ -6,7 +6,7 @@ const Color = ({ id, item, label, updateItemData }) => {
   const [backgroundColor, setBackgroundColor] = useState('');
   const { items } = useContext(BackgroundColorContext);
 
-  const clickBrandingColours = (colorItem, index) => {
+  const clickBrandingColours = (colorItem) => {
     setBackgroundColor(colorItem);
     updateItemData(colorItem, item, id);
   }
@@ -14,7 +14,7 @@ const Color = ({ id, item, label, updateItemData }) => {
   return (
     <React.Fragment>
       <label htmlFor={`background-colour-${id}`}>{label}</label>
-      <div className="pb-branding-color-tile-container">
+      <div className="pb-branding-color-tile-container pb-branding-color-tile-container--large-gap">
         <div className="pb-branding-color-tile" style={{background: backgroundColor}}></div>
         
         <div className="pb-colour-picker">
@@ -33,7 +33,7 @@ const Color = ({ id, item, label, updateItemData }) => {
         <div className="pb-branding-color-tile-suggestions">
           {items.map((colorItem, index) => <button
             className="pb-branding-color-tile pb-branding-color-tile--suggestion"
-            onClick={() => clickBrandingColours(colorItem, index)}
+            onClick={() => clickBrandingColours(colorItem)}
             style={{ background: `${colorItem}` }}>
           </button>)}
         </div>

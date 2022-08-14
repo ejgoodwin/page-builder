@@ -23,7 +23,6 @@ const Sidebar = ({ addComponent }) => {
 				</button>
 			</div>
 
-			{/* Update to switch statement */}
 			{activeTab === 1 ? <ComponentsTab addComponent={addComponent} /> : <BrandingTab />}
 		</div>
 	);
@@ -65,11 +64,11 @@ function ComponentsTab({ addComponent }) {
 }
 
 function BrandingTab() {
-	const { items, addITem, removeColor } = useContext(BackgroundColorContext);
+	const { items, primaryStyling, secondaryStyling, addITem, updatePrimaryButton, updateSecondaryButton, removeColor } = useContext(BackgroundColorContext);
 
 	return (
 		<div>
-			<label>Colours</label>
+			<h3>Colours</h3>
 			<div className="pb-branding-color-tile-container">
 				{items.map((colorItem, index) => <button
 					className="pb-branding-color-tile"
@@ -85,6 +84,51 @@ function BrandingTab() {
 						type="color"
 					/>
 				</button>
+			</div>
+
+			<h3>Buttons</h3>
+			{items.length < 1 ? 'Add some colours above to apply button styling' : ''}
+			
+			<div className={items.length < 1 ? 'pb-hide' : ''}>
+				<h4>Primary</h4>
+				<label>Background colour</label>
+				<div className="pb-branding-color-tile-container">
+					{items.map((colorItem) => <button
+						className="pb-branding-color-tile"
+						onClick={() => updatePrimaryButton([colorItem, primaryStyling[1]])}
+						style={{ background: `${colorItem}` }}>
+					</button>)}
+				</div>
+
+				<label>Text colour</label>
+				<div className="pb-branding-color-tile-container">
+					{items.map((colorItem) => <button
+						className="pb-branding-color-tile"
+						onClick={() => updatePrimaryButton([primaryStyling[0], colorItem])}
+						style={{ background: `${colorItem}` }}>
+					</button>)}
+				</div>
+				<button className='button' style={{backgroundColor: primaryStyling[0], color: primaryStyling[1]}}>Primary button</button>
+
+				<h4>Secondary</h4>
+				<label>Background colour</label>
+				<div className="pb-branding-color-tile-container">
+					{items.map((colorItem) => <button
+						className="pb-branding-color-tile"
+						onClick={() => updateSecondaryButton([colorItem, secondaryStyling[1]])}
+						style={{ background: `${colorItem}` }}>
+					</button>)}
+				</div>
+
+				<label>Text colour</label>
+				<div className="pb-branding-color-tile-container">
+					{items.map((colorItem) => <button
+						className="pb-branding-color-tile"
+						onClick={() => updateSecondaryButton([secondaryStyling[0], colorItem])}
+						style={{ background: `${colorItem}` }}>
+					</button>)}
+				</div>
+				<button className='button' style={{backgroundColor: secondaryStyling[0], color: secondaryStyling[1]}}>Secondary button</button>
 			</div>
 		</div>
 	);

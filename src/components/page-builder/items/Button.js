@@ -1,29 +1,43 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import BackgroundColorContext from "../../context/BackgroundColorContext";
 
 const Button = ({ id, updateItemData }) => {
-  const [buttonPath, setButtonPath] = useState('');
-  const [buttonText, setButtonText] = useState('');
-  const [buttonType, setButtonType] = useState('button--primary');
+ 
+  const [buttonData, setButtonData] = useState({});
+  const { primaryStyling, secondaryStyling } = useContext(BackgroundColorContext);
 
+  // Apply primary type to the button.
+  useEffect(() => {
+    setButtonData((prevState) => ({...prevState, type: 'primary'}));
+  }, [])
+  
   return (
     <React.Fragment>
       <label htmlFor={`button-${id}`}>Button</label>
       <div className="pb-buttons-item">
         <input
           className="pb-section-text-input"
-          onBlur={() => updateItemData([{ link: buttonPath, label: buttonText, classes: buttonType }], 'buttons', id)}
-          onChange={(e) => setButtonPath(e.target.value)}
+          onBlur={() => updateItemData([buttonData], 'buttons', id)}
+          onChange={(e) => setButtonData((prevState) => ({...prevState, link: e.target.value}))}
           placeholder="Link"
-          value={buttonPath} />
+          value={buttonData.link} />
         <input
           className="pb-section-text-input"
-          onBlur={() => updateItemData([{ link: buttonPath, label: buttonText, classes: buttonType }], 'buttons', id)}
-          onChange={(e) => setButtonText(e.target.value)}
-          value={buttonText}
-          placeholder="Label" />
-        <select className="pb-section-text-input" onBlur={() => updateItemData([{ link: buttonPath, label: buttonText, classes: buttonType }], 'buttons', id)} onChange={(e) => setButtonType(e.target.value)}>
-          <option value='button--primary'>Primary</option>
-          <option value='button--secondary'>Secondary</option>
+          onBlur={() => updateItemData([buttonData], 'buttons', id)}
+          onChange={(e) => setButtonData((prevState) => ({...prevState, label: e.target.value}))}
+          placeholder="Label"
+          value={buttonData.label} />
+        <select
+          className="pb-section-text-input"
+          onBlur={() => updateItemData([buttonData], 'buttons', id)}
+          onChange={(e) => setButtonData((prevState) => {
+            return {
+              ...prevState,
+              type: e.target.value,
+            }
+          })}>
+            <option value='primary'>Primary</option>
+            <option value='secondary'>Secondary</option>
         </select>
       </div>
     </React.Fragment>

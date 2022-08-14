@@ -1,5 +1,6 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { BackgroundColorContextProvider } from "../context/BackgroundColorContext";
+import { ButtonStylingContextProvider } from "../context/ButtonStylingContext";
 import Builder from "./Builder";
 import Sidebar from "./Sidebar";
 
