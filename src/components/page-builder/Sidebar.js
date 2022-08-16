@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import BackgroundColorContext from "../context/BackgroundColorContext";
 import hero from "../../images/components/hero.png";
 import card from "../../images/components/cards.png";
@@ -7,24 +7,41 @@ import textBlockCenter from "../../images/components/text-block-center.png";
 
 const Sidebar = ({ addComponent }) => {
 	const [activeTab, setActiveTab] = useState(1);
+	const [sidebarIsVisible, setSidebarIsVisible] = useState(false);
+
+	const toggleSidebar = () => {
+		setSidebarIsVisible((prevState) => !prevState);
+	}
 
 	return (
-		<div className="pb-sidebar">
-			<div className="pb-tab-headings">
-				<button
-					className={`pb-tab-link ${activeTab === 1 ? 'pb-tab-link--active' : ''}`}
-					onClick={() => setActiveTab(1)}>
-					Components
-				</button>
-				<button
-					className={`pb-tab-link ${activeTab === 2 ? 'pb-tab-link--active' : ''}`}
-					onClick={() => setActiveTab(2)}>
-					Branding
-				</button>
-			</div>
+		<React.Fragment>
+			<button
+				className="pb-sidebar__toggle-button pb-sidebar__toggle-button--open"
+				onClick={() => toggleSidebar()}>
+				<span class="material-icons">menu</span>
+			</button>
+			<div className={`pb-sidebar ${sidebarIsVisible ? 'pb-sidebar--open' : ''}`}>
+				<div className="pb-tab-headings">
+					<button
+						className={`pb-tab-link ${activeTab === 1 ? 'pb-tab-link--active' : ''}`}
+						onClick={() => setActiveTab(1)}>
+						Components
+					</button>
+					<button
+						className={`pb-tab-link ${activeTab === 2 ? 'pb-tab-link--active' : ''}`}
+						onClick={() => setActiveTab(2)}>
+						Branding
+					</button>
+					<button
+						className="pb-sidebar__toggle-button pb-sidebar__toggle-button--close"
+						onClick={() => toggleSidebar()}>
+						<span class="material-icons">close</span>
+					</button>
+				</div>
 
-			{activeTab === 1 ? <ComponentsTab addComponent={addComponent} /> : <BrandingTab />}
-		</div>
+				{activeTab === 1 ? <ComponentsTab addComponent={addComponent} /> : <BrandingTab />}
+			</div>
+		</React.Fragment>
 	);
 }
 
@@ -88,7 +105,7 @@ function BrandingTab() {
 
 			<h3>Buttons</h3>
 			{items.length < 1 ? 'Add some colours above to apply button styling' : ''}
-			
+
 			<div className={items.length < 1 ? 'pb-hide' : ''}>
 				<h4>Primary</h4>
 				<label>Background colour</label>
@@ -108,7 +125,7 @@ function BrandingTab() {
 						style={{ background: `${colorItem}` }}>
 					</button>)}
 				</div>
-				<button className='button' style={{backgroundColor: primaryStyling[0], color: primaryStyling[1]}}>Primary button</button>
+				<button className='button' style={{ backgroundColor: primaryStyling[0], color: primaryStyling[1] }}>Primary button</button>
 
 				<h4>Secondary</h4>
 				<label>Background colour</label>
@@ -128,7 +145,7 @@ function BrandingTab() {
 						style={{ background: `${colorItem}` }}>
 					</button>)}
 				</div>
-				<button className='button' style={{backgroundColor: secondaryStyling[0], color: secondaryStyling[1]}}>Secondary button</button>
+				<button className='button' style={{ backgroundColor: secondaryStyling[0], color: secondaryStyling[1] }}>Secondary button</button>
 			</div>
 		</div>
 	);
