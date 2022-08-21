@@ -4,8 +4,8 @@ const BackgroundColorContext = createContext();
 
 export function BackgroundColorContextProvider({ children }) {
   const [items, setItems] = useState([]);
-  const [primaryStyling, setPrimaryStyling] = useState(['#057BBA', 'white']);
-  const [secondaryStyling, setSecondaryStyling] = useState(['#FAD287', 'black']);
+  const [primaryStyling, setPrimaryStyling] = useState(['#057BBA', '#fff']);
+  const [secondaryStyling, setSecondaryStyling] = useState(['#FAD287', '#000']);
 
   const addITem = (color) => {
     setItems((prevState) => [...prevState, color]);
@@ -17,6 +17,7 @@ export function BackgroundColorContextProvider({ children }) {
 
   const updatePrimaryButton = (styling) => {
     setPrimaryStyling(styling);
+    console.log('updated primary', primaryStyling)
   }
 
   const updateSecondaryButton = (styling) => {

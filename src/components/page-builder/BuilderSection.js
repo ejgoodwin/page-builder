@@ -53,7 +53,7 @@ const BuilderSection = ({ addCard, addSavedSection, deleteComponent, first, last
 				<h3 className="pb-section-header-heading">{formatComponentName(section.component)}</h3>
 				<div className="pb-section-header-buttons">
 					<button className="button button-icon button-small" onClick={() => deleteComponent(section.id)}>
-						<span class="material-icons">delete</span>
+						<span className="material-icons">delete</span>
 					</button>
 				</div>
 			</div>

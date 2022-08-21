@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { BackgroundColorContextProvider } from "../context/BackgroundColorContext";
-import { ButtonStylingContextProvider } from "../context/ButtonStylingContext";
 import Builder from "./Builder";
 import Sidebar from "./Sidebar";
 
@@ -89,15 +87,13 @@ const PageBuilder = () => {
 
 	return (
 		<div className="pb-container">
-			<BackgroundColorContextProvider>
-				<Sidebar addComponent={addComponent} />
-				<Builder
-					addCard={addCard}
-					addSavedSection={addSavedSection}
-					data={builderData}
-					deleteComponent={deleteComponent}
-					moveComponent={moveComponent} />
-			</BackgroundColorContextProvider>
+			<Sidebar addComponent={addComponent} />
+			<Builder
+				addCard={addCard}
+				addSavedSection={addSavedSection}
+				data={builderData}
+				deleteComponent={deleteComponent}
+				moveComponent={moveComponent} />s
 		</div>
 	);
 }

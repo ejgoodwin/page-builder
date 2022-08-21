@@ -4,7 +4,7 @@ import BackgroundColorContext from "../../context/BackgroundColorContext";
 const Button = ({ id, updateItemData }) => {
  
   const [buttonData, setButtonData] = useState({});
-  const { primaryStyling, secondaryStyling } = useContext(BackgroundColorContext);
+  // const { updatePrimaryButton, updateSecondaryButton } = useContext(BackgroundColorContext);
 
   // Apply primary type to the button.
   useEffect(() => {

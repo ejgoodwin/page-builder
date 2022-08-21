@@ -18,7 +18,7 @@ const Sidebar = ({ addComponent }) => {
 			<button
 				className="pb-sidebar__toggle-button pb-sidebar__toggle-button--open"
 				onClick={() => toggleSidebar()}>
-				<span class="material-icons">menu</span>
+				<span className="material-icons">menu</span>
 			</button>
 			<div className={`pb-sidebar ${sidebarIsVisible ? 'pb-sidebar--open' : ''}`}>
 				<div className="pb-tab-headings">
@@ -35,7 +35,7 @@ const Sidebar = ({ addComponent }) => {
 					<button
 						className="pb-sidebar__toggle-button pb-sidebar__toggle-button--close"
 						onClick={() => toggleSidebar()}>
-						<span class="material-icons">close</span>
+						<span className="material-icons">close</span>
 					</button>
 				</div>
 
