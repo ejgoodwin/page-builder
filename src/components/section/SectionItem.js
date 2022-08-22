@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import BrandingColourContext from "../context/BrandingColorContext";
 
 const SectionItem = ({ component, item }) => {
 
@@ -22,11 +24,19 @@ const SectionItem = ({ component, item }) => {
 }
 
 function Buttons({ buttons }) {
+	const { primaryStyling, secondaryStyling } = useContext(BrandingColourContext);
+
 	return (
 		<div className="button-container">
 			{buttons.map((button) =>
-				<Link className={`button ${button.classes}`} to={button.link ? button.link : ''}>
-					{button.label}
+				<Link
+					className={`button ${button.classes}`}
+					to={button.link ? button.link : ''}
+					style={{
+						backgroundColor: button.type === 'primary' ? primaryStyling[0] : secondaryStyling[0],
+						color: button.type === 'primary' ? primaryStyling[1] : secondaryStyling[1]
+					}}>
+						{button.label}
 				</Link>)}
 		</div>
 	);
