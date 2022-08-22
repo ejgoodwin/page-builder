@@ -14,13 +14,11 @@ const testData = [
 						label: 'Creat a new page',
 						link: '/page-builder',
 						classes: 'button--primary',
-						type: 'primary'
 					},
 					{
 						label: 'Example page',
 						link: '/example-page',
 						classes: 'button--secondary',
-						type: 'secondary'
 					}
 				]
 			}
@@ -70,7 +68,6 @@ const testData = [
 						label: 'Create new page',
 						link: '/page-builder',
 						classes: 'button--secondary',
-						type: 'secondary'
 					}
 				]
 			}
