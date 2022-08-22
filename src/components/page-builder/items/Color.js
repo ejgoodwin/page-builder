@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import colourWheel from "../../../images/colour-wheel.png";
-import BackgroundColorContext from "../../context/BackgroundColorContext";
+import BrandingColourContext from "../../context/BrandingColorContext";
 
 const Color = ({ id, item, label, updateItemData }) => {
   const [backgroundColor, setBackgroundColor] = useState('');
-  const { items } = useContext(BackgroundColorContext);
+  const { items } = useContext(BrandingColourContext);
 
   const clickBrandingColours = (colorItem) => {
     setBackgroundColor(colorItem);

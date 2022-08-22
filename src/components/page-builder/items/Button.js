@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
-import BackgroundColorContext from "../../context/BackgroundColorContext";
+import React, { useEffect, useState } from "react";
 
 const Button = ({ id, updateItemData }) => {
  
   const [buttonData, setButtonData] = useState({});
-  // const { updatePrimaryButton, updateSecondaryButton } = useContext(BackgroundColorContext);
 
   // Apply primary type to the button.
   useEffect(() => {

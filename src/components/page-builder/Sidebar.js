@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import BackgroundColorContext from "../context/BackgroundColorContext";
+import BrandingColourContext from "../context/BrandingColorContext";
 import hero from "../../images/components/hero.png";
 import card from "../../images/components/cards.png";
 import textBlock from "../../images/components/text-block-left.png";
@@ -81,7 +81,7 @@ function ComponentsTab({ addComponent }) {
 }
 
 function BrandingTab() {
-	const { items, primaryStyling, secondaryStyling, addITem, updatePrimaryButton, updateSecondaryButton, removeColor } = useContext(BackgroundColorContext);
+	const { items, primaryStyling, secondaryStyling, addITem, updatePrimaryButton, updateSecondaryButton, removeColor } = useContext(BrandingColourContext);
 
 	return (
 		<div>

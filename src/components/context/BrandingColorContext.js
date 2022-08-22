@@ -1,8 +1,8 @@
 import { createContext, useState } from 'react'
 
-const BackgroundColorContext = createContext();
+const BrandingColorContext = createContext();
 
-export function BrandingContextProvider({ children }) {
+export function BrandingColourContextProvider({ children }) {
   const [items, setItems] = useState([]);
   const [primaryStyling, setPrimaryStyling] = useState(['#057BBA', '#fff']);
   const [secondaryStyling, setSecondaryStyling] = useState(['#FAD287', '#000']);
@@ -25,11 +25,11 @@ export function BrandingContextProvider({ children }) {
   }
 
   return (
-    <BackgroundColorContext.Provider
+    <BrandingColorContext.Provider
       value={{ items, primaryStyling, secondaryStyling, addITem, updatePrimaryButton, updateSecondaryButton, removeColor }}>
       {children}
-    </BackgroundColorContext.Provider>
+    </BrandingColorContext.Provider>
   );
 }
 
-export default BackgroundColorContext;
+export default BrandingColorContext;

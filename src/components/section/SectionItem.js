@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import BackgroundColorContext from "../context/BackgroundColorContext";
+import BrandingColourContext from "../context/BrandingColorContext";
 
 const SectionItem = ({ component, item }) => {
 
@@ -24,7 +24,7 @@ const SectionItem = ({ component, item }) => {
 }
 
 function Buttons({ buttons }) {
-	const { primaryStyling, secondaryStyling } = useContext(BackgroundColorContext);
+	const { primaryStyling, secondaryStyling } = useContext(BrandingColourContext);
 
 	return (
 		<div className="button-container">

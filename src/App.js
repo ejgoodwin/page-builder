@@ -5,7 +5,7 @@ import Page from './components/Page';
 import homePageData from './data/home-page-data';
 import PageBuilder from './components/page-builder/PageBuilder';
 import Header from './components/Header';
-import { BrandingContextProvider } from "./components/context/BackgroundColorContext";
+import { BrandingColourContextProvider } from "./components/context/BrandingColorContext";
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <BrandingContextProvider>
+      <BrandingColourContextProvider>
         <Routes>
           <Route path="/" element={ <Page data={homePageData} /> }></Route>
           <Route path="example-page" element={ <Page data={testData} /> }></Route>
@@ -21,7 +21,7 @@ function App() {
           <Route path="preview" element={ <Page data={testData} /> }></Route>
           {/* <Route path="/*" element={ <ErrorPage /> }></Route> */}
         </Routes>
-      </BrandingContextProvider>
+      </BrandingColourContextProvider>
     </div>
   );
 }
