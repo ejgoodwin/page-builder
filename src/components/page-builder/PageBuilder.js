@@ -93,7 +93,7 @@ const PageBuilder = () => {
 				addSavedSection={addSavedSection}
 				data={builderData}
 				deleteComponent={deleteComponent}
-				moveComponent={moveComponent} />s
+				moveComponent={moveComponent} />
 		</div>
 	);
 }

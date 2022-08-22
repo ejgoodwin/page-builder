@@ -1,5 +1,7 @@
 :root {
   --input-border-colour: #E8E8E8;
+  --section-border-colour: #dfdfdf;
+  --section-border-colour-light: #e9e9e9;
 }
 
 * {
@@ -13,7 +15,7 @@ h2 {
 
 label {
   display: block;
-  font-weight: 600;
+  font-size: .9rem;
   margin: 12px 0 4px;
 }
 
@@ -290,7 +292,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
-  margin: 8px 0 16px 0;
+  margin: 8px 0;
 }
 
 .pb-branding-color-tile-container--large-gap {
@@ -485,6 +487,31 @@ img {
 
 .pb-sidebar--open {
   left: 0;
+}
+
+.pb-sidebar__section {
+  border-bottom: 1px solid var(--section-border-colour);
+  padding: 1.5rem 0;
+}
+
+.pb-sidebar__section-inner {
+  padding: 1rem 0;
+}
+
+.pb-sidebar__section-inner:first-of-type {
+  padding-top: 0;
+}
+
+.pb-sidebar__section h3 {
+  margin-top: 0;
+}
+
+.pb-sidebar__section h4 {
+  margin: 8px 0;
+}
+
+.pb-sidebar__section:last-of-type {
+  border-bottom: none;
 }
 
 .pb-sidebar__toggle-button {

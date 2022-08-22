@@ -2,7 +2,7 @@ import { createContext, useState } from 'react'
 
 const BackgroundColorContext = createContext();
 
-export function BackgroundColorContextProvider({ children }) {
+export function BrandingContextProvider({ children }) {
   const [items, setItems] = useState([]);
   const [primaryStyling, setPrimaryStyling] = useState(['#057BBA', '#fff']);
   const [secondaryStyling, setSecondaryStyling] = useState(['#FAD287', '#000']);
