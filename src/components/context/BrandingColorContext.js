@@ -7,12 +7,20 @@ export function BrandingColourContextProvider({ children }) {
   const [primaryStyling, setPrimaryStyling] = useState(['#057BBA', '#fff']);
   const [secondaryStyling, setSecondaryStyling] = useState(['#FAD287', '#000']);
 
-  const addITem = (color) => {
+  const addColor = (color) => {
     setItems((prevState) => [...prevState, color]);
   }
 
   const removeColor = (ItemIndex) => {
     setItems((prevState) => [...prevState].filter((item, index) => index !== ItemIndex));
+  }
+
+  const updateLastColor = (color) => {
+    setItems((prevState) => {
+      const updatedColors = [...prevState];
+      updatedColors[updatedColors.length - 1] = color;
+      return updatedColors;
+    });
   }
 
   const updatePrimaryButton = (styling) => {
@@ -26,7 +34,7 @@ export function BrandingColourContextProvider({ children }) {
 
   return (
     <BrandingColorContext.Provider
-      value={{ items, primaryStyling, secondaryStyling, addITem, updatePrimaryButton, updateSecondaryButton, removeColor }}>
+      value={{ items, primaryStyling, secondaryStyling, addColor,updateLastColor, updatePrimaryButton, updateSecondaryButton, removeColor }}>
       {children}
     </BrandingColorContext.Provider>
   );

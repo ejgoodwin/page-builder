@@ -81,7 +81,8 @@ function ComponentsTab({ addComponent }) {
 }
 
 function BrandingTab() {
-	const { items, primaryStyling, secondaryStyling, addITem, updatePrimaryButton, updateSecondaryButton, removeColor } = useContext(BrandingColourContext);
+	const { items, primaryStyling,updateLastColor, secondaryStyling, addColor, updatePrimaryButton, updateSecondaryButton, removeColor } = useContext(BrandingColourContext);
+	const [newColor, setNewColor] = useState('#000');
 
 	return (
 		<div>
@@ -94,11 +95,12 @@ function BrandingTab() {
 						style={{ background: `${colorItem}` }}>
 						<span className="pb-branding-color-tile-icon material-icons md-18">remove</span>
 					</button>)}
-					<button className="pb-branding-color-tile pb-branding-color-tile--add">
+					<button className="pb-branding-color-tile pb-branding-color-tile--add"
+							onClick={(e) => addColor(newColor)}>
 						<span className="pb-branding-color-tile-add-icon material-icons md-18">add</span>
 						<input
 							className="pb-colour-picker__input"
-							onBlur={(e) => addITem(e.target.value)}
+							onChange={(e) => updateLastColor(e.target.value)}
 							type="color"
 						/>
 					</button>
