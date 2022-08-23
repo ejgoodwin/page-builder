@@ -15,7 +15,6 @@ const Header = () => {
 				<img src={logo} alt='Logo' />
 			</Link>
 			<nav>
-				<NavLink className="header__link" to="/" style={({ isActive }) => checkActiveLink(isActive)}>Home</NavLink>
 				<NavLink className="header__link" to="/page-builder" style={({ isActive }) => checkActiveLink(isActive)}>Page builder</NavLink>
 				<NavLink className="header__link" to="/example-page" style={({ isActive }) => checkActiveLink(isActive)}>Example page</NavLink>
 			</nav>

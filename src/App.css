@@ -121,10 +121,15 @@ img {
   border-bottom: 2px solid transparent;
   color: #ECF8FD;
   display: inline-block;
-  margin: 0 .5rem;
+  font-size: 0.875rem;
+  margin: 0 .25rem;
   padding: .25rem .25rem;
   text-decoration: none;
   transition: .1s;
+}
+
+.header__link:last-of-type {
+  margin-right: 0;
 }
 
 .header__link:hover {
@@ -707,6 +712,11 @@ img {
 
   .pb-section-item {
     display: grid;
+  }
+
+  .header__link {
+    font-size: 1rem;
+    margin: 0 .5rem;
   }
 }
 
