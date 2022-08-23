@@ -613,8 +613,14 @@ img {
 }
 
 .pb-section-item {
+  border-bottom: 1px solid var(--section-border-colour-light);
   gap: 16px;
   grid-template: auto / repeat(2, 1fr) .75fr;
+  padding: 1rem 0;
+}
+
+.pb-section-item:last-of-type {
+  border: none;
 }
 
 .pb-section-item__padding {
