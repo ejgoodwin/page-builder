@@ -30,15 +30,19 @@ const Color = ({ id, item, label, updateItemData }) => {
           <span className="pb-colour-picker__outline"></span>
         </div>
 
-        {items.length > 0 ?
-          <div className="pb-branding-color-tile-suggestions">
-            {items.map((colorItem) => <button
-              className="pb-branding-color-tile pb-branding-color-tile--suggestion"
-              onClick={() => clickBrandingColours(colorItem)}
-              style={{ background: `${colorItem}` }}>
-            </button>)}
-          </div>
-          : ''}
+        <div className="pb-branding-color-tile-suggestions">
+          {items.map((colorItem) => <button
+            className="pb-branding-color-tile pb-branding-color-tile--suggestion"
+            onClick={() => clickBrandingColours(colorItem)}
+            style={{ background: `${colorItem}` }}>
+          </button>)}
+          <button
+            className="pb-branding-color-tile pb-branding-color-tile--suggestion"
+            onClick={() => clickBrandingColours('transparent')}
+            style={{ background: '#fff' }}>
+              <span className="material-icons md-18">close</span>
+          </button>
+        </div>
 
       </div>
     </React.Fragment>

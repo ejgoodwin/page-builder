@@ -255,6 +255,12 @@ img {
 .pb-branding-color-tile--suggestion {
   border: none;
   border-radius: 0;
+  color: grey;
+  transition: color .1s;
+}
+
+.pb-branding-color-tile--suggestion:hover {
+  color: black;
 }
 
 .pb-branding-color-tile--suggestion:first-of-type {
