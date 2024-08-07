@@ -53,10 +53,14 @@ const Builder = ({
 
       <section>
         <div className='pb-section pb-section-empty'>
-          <p>
+          <p className='align-center justify-center'>
             Add a component{" "}
-            <button onClick={() => setAddComponentModalIsOpen(true)}>
-              Add
+            <button
+              className='button button--secondary button-small'
+              onClick={() => setAddComponentModalIsOpen(true)}
+              style={{ marginInlineStart: "8px" }}
+            >
+              <span className='material-icons'>add</span>
             </button>
           </p>
         </div>
