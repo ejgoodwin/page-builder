@@ -67,18 +67,19 @@ const Builder = ({
       </section>
 
       {addComponentModalIsOpen && (
-        <div className='pb-preview-modal'>
-          {" "}
-          <button
-            aria-label='close'
-            className='pb-preview-modal__close'
-            onClick={() => setAddComponentModalIsOpen(false)}
-          >
-            <span className='material-icons'>close</span>
-          </button>
-          <div className='pb-preview-modal__main'>
+        <div className='pb-component-modal'>
+          <div className='pb-component-modal__main'>
+            <button
+              aria-label='close'
+              className='pb-component-modal__close'
+              onClick={() => setAddComponentModalIsOpen(false)}
+            >
+              <span className='material-icons'>close</span>
+            </button>
             <section>
-              <header>Add a new section</header>
+              <header>
+                <h2>Add a new section</h2>
+              </header>
             </section>
 
             <div>
