@@ -1,21 +1,37 @@
 import React, { useState } from "react";
 
-const Heading = ({ id, updateItemData }) => {
-  const [headingText, setHeadingText] = useState('');
+const Heading = ({ id, section, updateItemData }) => {
+  const [headingText, setHeadingText] = useState("");
 
   return (
-    <React.Fragment>
-      <label htmlFor={`heading-${id}`}>Heading</label>
-      <input
-        className="pb-section-text-input"
-        id={`heading-${id}`}
-        placeholder="Heading..."
-        type="text"
-        onChange={(e) => setHeadingText(e.target.value)}
-        onBlur={() => updateItemData(headingText, 'heading', id)}
-        value={headingText} />
-    </React.Fragment>
+    <>
+      {section.component === "hero" ? (
+        <h1>
+          <input
+            className='pb-section-text-input-preview hero__heading'
+            id={`heading-${id}`}
+            placeholder='Heading...'
+            type='text'
+            onChange={(e) => setHeadingText(e.target.value)}
+            onBlur={() => updateItemData(headingText, "heading", id)}
+            value={headingText}
+          />
+        </h1>
+      ) : (
+        <h2>
+          <input
+            className='pb-section-text-input-preview hero__heading-2'
+            id={`heading-${id}`}
+            placeholder='Heading...'
+            type='text'
+            onChange={(e) => setHeadingText(e.target.value)}
+            onBlur={() => updateItemData(headingText, "heading", id)}
+            value={headingText}
+          />
+        </h2>
+      )}
+    </>
   );
-}
+};
 
 export default Heading;
